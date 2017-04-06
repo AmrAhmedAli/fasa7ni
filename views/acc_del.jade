@@ -1,0 +1,61 @@
+<script src="assets/js/jquery-3.1.1.min.js"></script>
+<script src="assets/js/bootstrap.js"></script>
+h1 Requested Businesses
+			form.form()
+				table.col-xs-12
+					tr
+						th Email
+						th BusinessName
+						th CreditCard
+						th HolderName
+						th CVV
+						th ValidDate
+						th Description
+						th
+					each request in requests 
+						tr
+							td= request.requesterMail
+							td= request.businessName
+							td= request.cardNumber
+							td= request.holderName
+							td= request.cvv
+							td= request.validdate
+							td= request.description
+							td  
+								button.remove-doc.btn.btn-danger.col-xs-12(data-id="#{request.requesterMail}") X
+							td  
+								button.add-doc.btn.btn-danger.col-xs-12(data-id="#{request.requesterMail}", data-id1="#{request.businessName}" , data-id2="#{request.cardNumber}" , data-id3="#{request.holderName}" , data-id4="#{request.cvv}" , data-id5="#{request.validdate}" , data-id6="#{request.description}", , data-id7="#{request.password}") Accept								
+script().
+	$('button.remove-doc').on('click',function(){
+		var userId = $(this).attr('data-id');
+		$.ajax({
+			method:"POST",
+			url:"/deleteReq",
+			data:{"userId": userId},
+			success: function(result){
+				
+					location.reload();
+				
+			}
+		})
+	});
+	$('button.add-doc').on('click',function(){
+		var userId = $(this).attr('data-id');
+		var bId = $(this).attr('data-id1');
+		var card = $(this).attr('data-id2');
+		var holder = $(this).attr('data-id3');
+		var cvv = $(this).attr('data-id4');
+		var date = $(this).attr('data-id5');
+		var description = $(this).attr('data-id6');
+		var password = $(this).attr('data-id7');
+		$.ajax({
+			method:"POST",
+			url:"/addReq",
+			data:{"userId": userId,"bId": bId, "card": card, "holder": holder, "cvv": cvv, "date": date, "description": description, "password": password},
+			success: function(result){
+				
+					location.reload();
+				
+			}
+		})
+	});

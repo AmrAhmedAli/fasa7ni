@@ -1,0 +1,23 @@
+trampoline<html> 
+
+	<head> 
+
+		<h1> <%= title %> </h1>
+	
+
+	</head>
+
+
+	<body> 
+		<ul>
+		 <% trampoline.forEach(function(trampoline){%>
+		 
+		 <li> <%= trampoline.name %> </li>
+		 
+										 <%})%>
+		 </ul>
+
+	</body>
+
+
+</html>
