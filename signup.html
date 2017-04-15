@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Signup - Fassa7ni </title>
+  <link rel="stylesheet" href="layana/css/bootstrap.min.css" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Mrs+Sheppards%7CDosis:300,400,700%7COpen+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800;' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="layana/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="layana/css/animate.min.css" type="text/css">
+  <link rel="stylesheet" href="layana/css/style.css" type="text/css">
+</head>
+<body>
+  <script src="layana/js/jquery.js"></script>
+  <script src="layana/js/bootstrap.min.js"></script>
+  <script src="layana/js/parallax.js"></script>
+  <script src="layana/js/contact.js"></script>
+  <script src="layana/js/countto.js"></script>
+  <script src="layana/js/jquery.easing.min.js"></script>
+  <script src="layana/js/wow.min.js"></script>
+  <script src="layana/js/common.js"></script>
+
+  <div class="container">
+  <div class="row">
+  	<div class="col-lg-12 text-center">
+  		<h2 class="section-heading"><b>SIGN UP</b></h2>
+  		<hr class="primary">
+  		<br/>
+  	</div>
+  </div>
+  </div>
+
+  <div class="container">
+    <div class="container">
+
+  <div class="form-group row">
+  <label for="display-name" class="col-4 col-form-label">Display Name</label>
+  <div class="col-10">
+    <input class="form-control" type="text" placeholder="Artisanal kale" id="display-name">
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="e-mail" class="col-2 col-form-label">Email</label>
+  <div class="col-10">
+    <input class="form-control" type="email" placeholder="example@example.com" id="e-mail">
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="password" class="col-2 col-form-label">Password</label>
+  <div class="col-10">
+    <input class="form-control" type="password" placeholder="Password" id="password">
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="confirm-password" class="col-2 col-form-label">Confirm Password</label>
+  <div class="col-10">
+    <input class="form-control" type="password" placeholder="Confirm Password" id="confirm-password">
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="birthdate" class="col-2 col-form-label">Birth Date</label>
+  <div class="col-10">
+    <input class="form-control" type="date" id="birthdate">
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="gender" class="col-2 col-form-label">Gender</label>
+  <div class="col-10">
+  <div class="form-check form-check-inline" id="gender">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Female
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Male
+  </div>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="contact-method" class="col-2 col-form-label">Contact Method</label>
+  <div class="col-10">
+  <div ng-app="" class="form-check form-check-inline" id="contact-method">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions1" ng-model="contact-way" value="e-mail"> E-mail
+    <input class="form-check-input" type="radio" name="inlineRadioOptions1" ng-model="contact-way" value="phone"> Phone
+    <input ng-show="contact-way == 'phone'" class="form-control" type="email" placeholder="example@example.com" id="e-mail">
+  </div>
+  </div>
+</div>
+
+<div class="form-group row">
+  <div class="col-10">
+    <button id="submit-button" name="user-signup" class="contact submit btn btn-primary btn-xl" type="submit" formmethod="post" formaction="/login_as_student" >Sign Up</button>
+  </div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
