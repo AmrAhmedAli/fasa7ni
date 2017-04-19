@@ -16,34 +16,45 @@ exports.list_all_tasks = function(req, res) {
   });
 };
 
-*/
 
+*/
 exports.count_a=function(req,res){
  User.count({},function(err,task){
-if(err)
-res.send(err);
+if(err){
+  console.log(err) ;
+  res.send(err);
+  // console.log(User.length) ;
+   
+
+}
+
 
 else{ 
 
 if(task==0){
-    res.send("No users have signed up") ;
+     console.log(task) ;
+
+    //res.redirect('/index');
 //res.json(task);
- console.log("No users have signed up") ;
+ //console.log("No users have signed up") ;
+ //console.log(User.length)
 //res.json({message:"Hello"}) 
 
 }
 
 
 else{
-res.json(task) ;
-console.log(task) ;
+   console.log(task) ;
+
+//res.render('index.html',{task}) ; 
+
+
 } 
 
 }
  });
 
 };
-
 
 /*
 
@@ -110,16 +121,23 @@ Maintenance.findOneAndUpdate({"isMaintenance":false}, {$set:{'isMaintenance':tru
 
 
 exports.rate_place= function(req, res) {
-  var new_Rating= new Rating(req.body);
+  var new_Rating= new Rating();
+   new_Rating.place =req.body[0]; 
+   new_Rating.rate =req.body[1]; 
+     new_Rating.email=req.body[2]; ;
+  //console.log( new_Rating.email) ; 
   new_Rating.save(function(err, task) {
     if (err)
      res.send("No rating done");
+     //res.json(err) ; 
      else 
-    res.json(task);
+
+    res.send(task);
   });
 };
 
-/* 
+
+
 
 exports.create_a_task = function(req, res) {
   var User1 = new  User (req.body);
@@ -132,7 +150,7 @@ exports.create_a_task = function(req, res) {
 };
 
 
-*/
+
 
 /*
 exports.read_a_task = function(req, res) {

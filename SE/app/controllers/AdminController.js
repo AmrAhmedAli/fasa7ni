@@ -1,7 +1,45 @@
 let Maintenance = require('../models/Maintenance') ; 
 
+let User = require('../models/User');
 
 
+exports.count_a=function(req,res){
+ User.count({},function(err,task){
+if(err){
+  console.log(err) ;
+  res.send(err);
+  // console.log(User.length) ;
+   
+
+}
+
+
+else{ 
+
+if(task==0){
+     console.log(task) ;
+
+    //res.redirect('/index');
+//res.json(task);
+ //console.log("No users have signed up") ;
+ //console.log(User.length)
+//res.json({message:"Hello"}) 
+
+}
+
+
+else{
+   console.log(task) ;
+
+res.render('index.html',{task}) ; 
+
+
+} 
+
+}
+ });
+
+};
 
 
 

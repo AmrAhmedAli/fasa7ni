@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html >
+<head>
+    <title> Users view </title>
+ <link rel="stylesheet" href="css/sample.css" type="text/css">
+
+</head>
+<body>
+  <h1>User Bar</h1>
+
+    <div id="myProgress">
+  <div id="myBar"> 0% </div>
+</div>
+
+<br> 
+
+
+<button onclick ="count()">Count Users</button>
+
+<script>
+                
+
+function count() {
+    var elem = document.getElementById("myBar"); 
+    var width = 0;
+    var id = setInterval(frame,0);
+    var task1="{{task}}" ; 
+    function frame() {
+    
+        if (width >=task1) {
+            clearInterval(id);
+        } else {
+            width++; 
+            elem.style.width = width + '%';
+            elem.innerHTML = width * 1 +'%';
+        }
+    }
+}
+
+
+</script>
+</body>
+
+</html>

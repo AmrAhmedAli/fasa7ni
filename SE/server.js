@@ -6,6 +6,7 @@ var _ = require('lodash');
 var router =require ('./app/routes')  ;
 //create application
 var app= express();
+var path =require ('path')  ;
 
 
 
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname+ '/public'));
+app.use(express.static(__dirname+ '/views'));
 
 
 app.use(router);
@@ -52,15 +53,23 @@ console.log("This site might be broken down" +res.statusCode)  ;
 
 */
 
+var cons=require('consolidate')  ; 
+
+app.engine('html',cons.swig)  ;
+app.set('views',path.join(__dirname,'views')) ;
+app.set('view engine' ,'html') ;
 
 
 
-app.set('view engine', 'ejs') ; 
+//app.set('layana', 'ejs') ; 
 
 
 
 //Connect to MongoDB
-mongoose.connect('mongodb://localhost/BREAKOUT');
+
+//mongoose.connect('mongodb://localhost/BREAKOUT');
+mongoose.connect('mongodb://localhost/fassa7ni');
+
 mongoose.connection.once('open',function(){
 
 
@@ -71,6 +80,11 @@ app.models=require('./app/models/User');
 app.models=require('./app/models/Rating');
 
 app.models=require('./app/models/Maintenance');
+
+
+
+app.models=require('./app/models/ServiceProvider');
+app.models=require('./app/models/Business')
 
 
   console.log('listening on port 3000 ... ') ;
