@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 var businessSchema = mongoose.Schema({
 
-        pname:{
+        name:{
           type: String,
           required: true,
           unique: true
@@ -17,10 +17,9 @@ var businessSchema = mongoose.Schema({
         	type: String,
         	required: true
         },
-        contactInfo: {
+        contactInfo:{
         	email: [String], //array
-          number: [Number], //array
-          
+          number: [Number] //array
         },
 
         ageRequirement: {
@@ -30,7 +29,7 @@ var businessSchema = mongoose.Schema({
 
         address: [{
         	type: String,
-        	required: false
+        	required: true
         }],
 
         openingHours:{
@@ -39,12 +38,11 @@ var businessSchema = mongoose.Schema({
         },
 
         rate :{
-        	type: Number,
-        	required: true
+        	type: Number
         },
 
         logo : {
-        	type: String //I will add a default value later
+        	data: String //I will add a default value later
         },
 
         cancelingPolicy:{
@@ -52,7 +50,7 @@ var businessSchema = mongoose.Schema({
             required: true
         },
         deadlinetoCancel: {
-            type: String,
+            type: Date,
             required: true
         },
         cancelingPenalty:{
@@ -65,6 +63,6 @@ var businessSchema = mongoose.Schema({
 
 
 
-var Business = mongoose.model("buisness", businessSchema);
+var Business = mongoose.model("business", businessSchema);
 
 module.exports = Business;
