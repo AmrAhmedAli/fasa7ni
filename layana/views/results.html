@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-controller="searchController">
+    <table class="col-xs-12">
+      <tr>
+
+        <th>Name</th>
+        <th>Location</th>
+        <th>Category</th>
+
+      </tr>
+
+      <tr ng-repeat="item in protocolList">
+
+        <td>{{item.name}}</td>
+        <td>{{item.location}}</td>
+        <td>{{item.category}}</td>
+
+
+      </tr>
+
+    </table>
+    
+  </body>
+</html>

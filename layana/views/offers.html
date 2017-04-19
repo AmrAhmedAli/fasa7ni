@@ -1,0 +1,23 @@
+<html ng-app = "myApp">
+<body ng-controller = "userController">
+  <table class="col-xs-12">
+    <tr>
+      <th>Logo</th>
+      <th>Place</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Valid Till</th>
+    </tr>
+
+    <tr ng-repeat="item in protocolList">
+      <td><img src="{{item.logoPath}}"></img></td>
+      <td>{{item.businessName}}</td>
+      <td>{{item.category}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.validTill}}</td>
+
+    </tr>
+
+  </table>
+</body>
+</html>
