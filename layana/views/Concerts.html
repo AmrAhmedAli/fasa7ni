@@ -1,0 +1,20 @@
+<html ng-app="viewCONC">
+
+<form class="form">
+
+<body ng-controller= "viewCONCController">
+
+	<h1>Concerts</h1>
+
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav navbar-left" ng-repeat="item in conc">
+			<li>
+			<a class="page-scroll" href="#page-top">{{item.name}}</a>
+			</li>
+
+		</ul>
+
+	</div>
+  </body>	
+ </form>
+</html>

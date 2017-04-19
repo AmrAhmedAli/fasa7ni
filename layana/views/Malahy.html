@@ -1,0 +1,20 @@
+<html ng-app="viewM">
+
+<form class="form">
+
+<body ng-controller= "viewMController">
+
+	<h1>Malahy</h1>
+
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<ul class="nav navbar-nav navbar-left" ng-repeat="item in place">
+			<li>
+			<a class="page-scroll" href="#page-top">{{item.name}}</a>
+			</li>
+
+		</ul>
+
+	</div>
+  </body>	
+ </form>
+</html>
