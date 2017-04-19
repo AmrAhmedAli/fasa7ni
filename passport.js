@@ -101,79 +101,40 @@ module.exports = function(passport) {
                 passReqToCallback : true
             },
             function(req, email, password, done) {
-
-            var flag=0;
-
-            if(flag===0){
               User.findOne({ 'email' :  email }, function(err, user) {
-                  console.log('In User');
-                  console.log(user);
 
                     if (err)
                         return done(err);
-                    if(!user)
-                          flag=1;
                     if (user){
                       if (!(user.validPassword(password)))
                         return done('Oops! Wrong password.');
-                      return done(user);
+                      return done(null,user);
                       }
                 });
 
-            }
 
-            if(flag===1){
-              Admin.findOne({ 'email' :  email }, function(err, admin) {
+            Admin.findOne({ 'email' :  email }, function(err, admin) {
                    console.log('In Admin');
                      if (err)
                          return done(err);
-                    if (!admin)
-                        flag=2;
                      if (admin){
                        if (!admin.validPassword(password))
                          return done('Oops! Wrong password.');
-                        return done(admin);
+                        return done(null,admin);
                        }
                        console.log('No Admin Found!');
                  });
-
-            }
-
-
-            if(flag===2){
-
-                 ServiceProvider.findOne({ 'email' :  email }, function(err, sP) {
+              ServiceProvider.findOne({ 'email' :  email }, function(err, sP) {
                    console.log('In ServiceProvider');
                      if (err)
                          return done(err);
-                    if(!sP)
-                          flag=3;
                      if (sP){
-                       if (!sP.validPassword(password))
-                         return done('Oops! Wrong password.');
-
-                       return done(sp);
+                         return done(null,sP);
                        }
                        console.log('No SP');
                  });
 
-
-            }
-
-          
-            if(flag===3){
-              return done('User not found');
-
-            }
-
-
-
-
-                //
-
-
-
-
+              ///return done('User not found');
 
 
             }));

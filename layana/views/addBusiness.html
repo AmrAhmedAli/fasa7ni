@@ -1,0 +1,73 @@
+<div class = "page-header">
+	<h1>Add A New Business</h1>
+</div>
+
+<form ng-submit = "serviceprovider.addBusiness(regData);" ng-upload method="post">
+	<h1>	
+	<label>Business Name:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business name" ng-model = "regData.name">
+	<br>
+
+	<label>Location:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Location" ng-model = "regData.location">
+	<br>
+
+	<label>Category:</label>
+	<select class ="form-control" ng-model = "regData.category">
+ 	 <option value="Cinema">Cinema</option>
+ 	 <option value="Concert">Concert</option>
+ 	 <option value="EscapeRoom">Escape Room</option>
+ 	 <option value="Fight">Fight</option>
+	 <option value="Kora">Kora</option>
+	 <option value="Malahy">Malahy</option>
+	 <option value="Race">Race</option>
+	 <option value="Theater">Theater</option>
+	 <option value="Trampoline">Trampoline</option>
+	</select>
+	<br>
+
+	
+	<label>Email:</label>
+	 <textarea class ="form-control" name = "emails" type="text" rows="1" cols="30" placeholder= "Enter List of Emails" ng-model = "regData.emails"></textarea>
+	<br>
+
+	<label>Number:</label>
+	<textarea class ="form-control"  name = "numbers" type="text" rows="1" cols="30" placeholder= "Enter List of Numbers" ng-model = "regData.numbers"></textarea>
+	<br>
+	
+	
+	<label>Age Requirement:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Business Age Restrictions" ng-model = "regData.ageRequirement">
+	<br>
+
+	<label>Address:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Address" ng-model = "regData.address">
+	<br>
+
+	<label>Opening Hours:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business opening hours" ng-model = "regData.openingHours">
+	<br>
+
+	<label>Canceling Policy:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Policy on canceling booking" ng-model = "regData.cancelingPolicy">
+	<br>
+
+	<label>Deadline To Cancel:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Deadline of canceling booking" ng-model = "regData.deadlinetoCancel">
+	<br>
+
+	<label>Canceling Penalty:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Penalty on canceling booking" ng-model = "regData.cancelingPenalty">
+	<br>
+
+	<label>Logo:</label>
+	<input class ="form-control" type="file" name="post_image" onchange="angular.element(this).scope().uploadFile(this.files)"/>
+	<br>
+
+	<button class = "btn btn-primary" type="submit">Submit</button>
+</form>
+<br>
+<div ng-show = "SC.error">{{ SC.error }}</div>
+<br></br>
+
+

@@ -1,33 +1,39 @@
 var express = require('express');
-var app = express();
-var mongoose = require('mongoose');
+var router = require('./app/routes.js');
 var bodyParser = require('body-parser');
-var router = require('./app/routes');
+var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
+var session= require('express-session');
+var passport = require('passport');
+var flash    = require('connect-flash');
+var DB_URI = "mongodb://localhost:27017/fassa7ni";
 var path = require('path');
 
+var app = express();
 
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
-app.use(router);
 app.set('view engine', 'jade');
 
+// configure app
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(cookieParser());
+app.use(session({secret: "sjdhffnrnf", resave:false, saveUninitialized: true}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(express.static(__dirname + '/layana'));
+app.use(passport.session());
 
-mongoose.connect('mongodb://localhost:27017/amr',function(err){
-	if(err){
-		console.log('Cannot connect to the database' + err);
-	}else{
-		console.log('Connected to the database');
-	}
+//configure passport
+
+require('./passport')(passport);
+
+mongoose.connect(DB_URI);
+app.use(router);
+
+app.get('/', function(req,res){
+	res.sendFile(path.join(__dirname + '/layana/index.html'));
 });
 
-
-
-
-
-
-
-app.listen(8080, function(){
-	console.log('Runnin');
-});
+// start the server
+app.listen(3000, function(){
+    console.log("server is listening on port 3000");
+})

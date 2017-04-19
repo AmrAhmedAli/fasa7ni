@@ -16,6 +16,10 @@ var businessRequestSchema = mongoose.Schema({
           type: String,
           required: true
         },
+	category: {
+          type: String,
+          required: true
+        },
         cardNumber:{
           type: String,
           required: true

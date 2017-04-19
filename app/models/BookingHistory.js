@@ -4,8 +4,7 @@ var mongoose = require('mongoose');
 var bookingHistorySchema = mongoose.Schema({
         userEmail: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         description: {
             type: String,
