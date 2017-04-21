@@ -140,7 +140,7 @@ res.render('404.ejs');
 
 function isLoggedInUser(req, res, next) {
    if (req.isAuthenticated()){
-	 if(req.user.role==='user')  
+	 if(req.user.role==='User')  
 	   return next();
 	 res.redirect('/');  
    }
