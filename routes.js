@@ -137,10 +137,37 @@ res.render('404.ejs');
 });
 
 
-function isLoggedIn(req, res, next) {
-   if (req.isAuthenticated())
-        return next();
+
+function isLoggedInUser(req, res, next) {
+   if (req.isAuthenticated()){
+	 if(req.user.role==='user')  
+	   return next();
+	 res.redirect('/');  
+   }
+        
     res.redirect('/');
-}
+};
+
+function isLoggedInProvider(req, res, next) {
+   if (req.isAuthenticated()){
+	 if(req.user.role==='Service Provider')  
+	   return next();
+	 res.redirect('/');  
+   }
+        
+    res.redirect('/');
+};
+
+function isLoggedInAdmin(req, res, next) {
+   if (req.isAuthenticated()){
+	 if(req.user.role==='Admin')  
+	   return next();
+	 res.redirect('/');  
+   }
+        
+    res.redirect('/');
+};
+
+
 
 module.exports = router;
