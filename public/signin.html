@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<body  ng-controller="signinController">
+
+    <div class="container">
+    <form name="userForm" novalidate>
+      <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
+
+      <div ng-show="showMessage" class="alert alert-danger">
+          <strong>{{errorMessage}}</strong> </div>
+
+        <div class="form-group row" ng-class="{ 'has-error' : userForm.email.$invalid && userForm.email.$touched }">
+          <label for="e-mail" class="col-2 col-form-label">Email</label>
+          <div class="col-10">
+            <input class="form-control" type="email" placeholder="example@example.com" id="e-mail" ng-model="email" name="email" required>
+            <p ng-show="userForm.email.$invalid && userForm.email.$touched" class="help-block">Enter a valid email.</p>
+          </div>
+        </div>
+
+        <div class="form-group row" ng-class="{ 'has-error' : userForm.password.$invalid && userForm.password.$touched }">
+          <label for="password" class="col-2 col-form-label">Password</label>
+          <div class="col-10">
+            <input class="form-control" type="password" placeholder="Password" id="password" ng-model="password" name="password" required>
+            <p ng-show="userForm.password.$invalid && userForm.password.$touched" class="help-block">Enter Password.</p>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-10">
+            <button id="submit-button" name="user-signup" class="contact submit btn btn-primary btn-xl" type="submit" ng-click=sendForm()  ng-disabled="userForm.$invalid" >Sign Up</button>
+          </div>
+        </div>
+    </form>
+      </div>
+
+    </body>
+    </html>

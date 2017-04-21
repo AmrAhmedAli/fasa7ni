@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<body ng-controller="trampolineController">
+<div >
+  <div class="container">
+    <div class="row">
+  	   <div class="col-lg-12 text-center">
+  		      <h2 class="section-heading"><b>Reviews</b></h2>
+  		      <hr class="primary">
+  		      <br/>
+  	   </div>
+    </div>
+  </div>
+
+    <div class="container">
+      <div class="card" ng-repeat="review in concerts" >
+        <h3 class="card-header">Review</h3>
+          <div class="card-block">
+            <h4 class="card-title">{{review.title}}</h4>
+            <p class="card-text">{{review.body}}</p>
+          </div>
+     </div>
+   </div>
+
+  </div>
+
+</body>
+</html>

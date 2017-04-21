@@ -1,0 +1,1 @@
+angular.module('myApp', ['ngRoute','ngMessages','ngCookies','AppRoutes', 'ConcertCtrl','TrampolineCtrl','EscapeRoomCtrl','TheatreCtrl','CinemaCtrl','MalahyCtrl','FightCtrl','RaceCtrl','KoraCtrl','SignUpCtrl','SignInCtrl']);
