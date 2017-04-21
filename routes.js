@@ -23,6 +23,8 @@ router.post('/test', function(req,res){
 })
 
 router.post('/signinUser', passport.authenticate('local-login-user',{successRedirect : '/', failureRedirect : '/signin', failureFlash : true}));
+router.post('/signinProvider', passport.authenticate('local-login-provider',{successRedirect : '/', failureRedirect : '/signin', failureFlash : true}));
+router.post('/signinAdmin', passport.authenticate('local-login-admin',{successRedirect : '/', failureRedirect : '/signin', failureFlash : true}));
 
 router.get('/',verificationController.index);
 
