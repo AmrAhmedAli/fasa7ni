@@ -133,7 +133,7 @@ module.exports = function(passport) {
                            console.log('No Admin Found!');
                      });
              }));
-            passport.use('local-login-admin', new LocalStrategy({
+            passport.use('local-login-provider', new LocalStrategy({
 
                 usernameField : 'email',
                 passwordField : 'password',
