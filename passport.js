@@ -94,7 +94,7 @@ module.exports = function(passport) {
 
         }));
 
-        passport.use('local-login', new LocalStrategy({
+        passport.use('local-login-user', new LocalStrategy({
 
                 usernameField : 'email',
                 passwordField : 'password',
@@ -111,19 +111,36 @@ module.exports = function(passport) {
                       return done(null,user);
                       }
                 });
+             }));
+    
+        
+        passport.use('local-login-admin', new LocalStrategy({
 
+                usernameField : 'email',
+                passwordField : 'password',
+                passReqToCallback : true
+            },
+            function(req, email, password, done) {   
+                Admin.findOne({ 'email' :  email }, function(err, admin) {
+                       console.log('In Admin');
+                         if (err)
+                             return done(err);
+                         if (admin){
+                           if (!admin.validPassword(password))
+                             return done('Oops! Wrong password.');
+                            return done(null,admin);
+                           }
+                           console.log('No Admin Found!');
+                     });
+             }));
+            passport.use('local-login-admin', new LocalStrategy({
 
-            Admin.findOne({ 'email' :  email }, function(err, admin) {
-                   console.log('In Admin');
-                     if (err)
-                         return done(err);
-                     if (admin){
-                       if (!admin.validPassword(password))
-                         return done('Oops! Wrong password.');
-                        return done(null,admin);
-                       }
-                       console.log('No Admin Found!');
-                 });
+                usernameField : 'email',
+                passwordField : 'password',
+                passReqToCallback : true
+            },
+            function(req, email, password, done) {  
+           
               ServiceProvider.findOne({ 'email' :  email }, function(err, sP) {
                    console.log('In ServiceProvider');
                      if (err)
@@ -133,9 +150,10 @@ module.exports = function(passport) {
                        }
                        console.log('No SP');
                  });
+         }));
 
               ///return done('User not found');
 
 
-            }));
+           
 }
