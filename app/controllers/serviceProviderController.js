@@ -124,7 +124,7 @@ postPicturesRedirect: function(req,res){
 
   },
 updateBusiness : function(req, res){
-		
+
 		var email = req.user.email;
 		var name = req.body.name;
 		var location = req.body.location;
@@ -149,7 +149,7 @@ updateBusiness : function(req, res){
 		req.checkBody('cancelingPenalty', 'Canceling Penalty is required').notEmpty();
 
 
-		Business.update({'email' : email}, 
+		Business.update({'email' : email},
 			{$set: {'location' : location},
 			$set: {'contactInfoEmail' : contactInfoEmail},
 			$set: {'contactInfoNumber' : contactInfoNumber},
@@ -159,7 +159,7 @@ updateBusiness : function(req, res){
 			$set: {'logo' : logo},
 			$set: {'cancelingPolicy' : cancelingPolicy},
 			$set: {'deadlinetoCancel' : deadlinetoCancel},
-			$set: {'cancelingPenalty' : cancelingPenalty}}, callback);	
+			$set: {'cancelingPenalty' : cancelingPenalty}}, callback);
 		},
 addReply : function(req, res){
 
@@ -168,66 +168,83 @@ addReply : function(req, res){
 		var title = req.body.title;
 
 		req.checkBody('reply', ' ').notEmpty();
-	
+
 		user.update(({'time':time}, { 'title':title }),
 			{$set: {'reply': reply}}, callback);
 		},
 viewUpdate : function(req,res){
-	
+
 				if(err) res.json(err);
 				else res.render('update.ejs',{title:'Update'});
 		},
-	updateContactInfoNum : function(req, res){
+    updateContactInfoNum : function(req, res){
 
-		var name = req.user.name;
-		var number = req.body.number;
-		var oldNum = req.body.oldNum;	
+    		//var name = req.user.name;
+    		var name = 'Breakout';
+    		var number = req.body.number;
+    		var oldNum = req.body.oldNum;
 
-		req.checkBody('number', 'New Number is required').notEmpty();
+    		//req.checkBody('number', 'New Number is required').notEmpty();
 
-		Business.update({'name':name,"contactInfo.number":oldNum},{$set: {"contactInfo.number": number}},callback);
-		
-		},
+    		Business.update({'name':name,"contactInfo.number":oldNum},{$set: {"contactInfo.number": number}},function(err,doc){
+    		if(err)console.log(err);
+    		else console.log('Added');
+    		});
+
+    		},
 
 
-updateContactInfoEmail : function(req, res){
+    updateContactInfoEmail : function(req, res){
 
-		var name = req.user.name;
-		var email = req.body.email;
-		var oldEmail = req.body.oldEmail;	
+    		//var name = req.user.name;
+    		var name = 'Breakout';
+    		var email = req.body.email;
+    		var oldEmail = req.body.oldEmail;
 
-		req.checkBody('email', 'New Email is required').notEmpty();
+    		//req.checkBody('email', 'New Email is required').notEmpty();
 
-			Business.update({name:name,"contactInfo.email":oldEmail},{$set: {"contactInfo.email": email}}, callback);
-	
-		},
+    			Business.update({name:name,"contactInfo.email":oldEmail},{$set: {"contactInfo.email": email}}, function(err,doc){
+    		if(err)console.log(err);
+    		else console.log('Added');
+    		});
 
-addContactInfoNum : function(req, res){
+    		},
 
-		var name = req.user.name;
-		var number = req.body.number;
-			
+    addContactInfoNum : function(req, res){
+    	console.log('hna');
+    		//var name = req.user.name;
+    		var name = 'Breakout';
+    		var number = req.body.number;
 
-		req.checkBody('number', 'New Number is required').notEmpty();
 
-		Business.update({'name':name},{$push:{"contactInfo.number":number}}, callback);
-		
-		},
+    		//req.checkBody('number', 'New Number is required').notEmpty();
 
-addContactInfoEmail : function(req, res){
+    		Business.update({'name':name},{$push:{"contactInfo.number":number}}, function(err,doc){
+    		if(err)console.log(err);
+    		else console.log('Added');
+    		});
 
-		var name = req.user.name;
-		var email = req.body.email;
-			
+    		},
 
-		req.checkBody('email', 'New Email is required').notEmpty();
+    addContactInfoEmail : function(req, res){
 
-		Business.update({name:name},{$push:{"contactInfo.email":email}}, callback);
-		
-		},
+    		//var name = req.user.name;
+    		var name = 'Breakout';
+    		var email = req.body.email;
+
+
+    		//req.checkBody('email', 'New Email is required').notEmpty();
+
+    		Business.update({name:name},{$push:{"contactInfo.email":email}}, function(err,doc){
+    		if(err)console.log(err);
+    		else console.log('Added');
+    		});
+
+    		},
+
 
 viewOffers : function(req,res){
-	
+
 			offers.find({},function (err, docs) {
 
 				if(err) res.json(err);
@@ -235,148 +252,178 @@ viewOffers : function(req,res){
 
 			});
 		},
-postOffers : function(req,res){
+    postOffers : function(req,res){
 
-	 req.checkBody('businessName', 'businessName is required').notEmpty();
-	 req.checkBody('category', 'Category is required').notEmpty();
-	 req.checkBody('description', 'description is required').notEmpty();
-	 req.checkBody('validTill', 'validTill is required').notEmpty();
-	
-	var errors =req.validationErrors();
-		console.log(req.body.businessName);
-		
-
-		if (errors)
-		{
-			console.log("err");
-			offers.find(function (err, docs) {
+    	// req.checkBody(req.body.businessName, 'businessName is required').notEmpty();
+    	 //req.checkBody(req.body.category, 'Category is required').notEmpty();
+    	 //req.checkBody(req.body.description, 'description is required').notEmpty();
+    	 //req.checkBody(req.body.validTill, 'validTill is required').notEmpty();
 
 
-				if(err) res.json(err);
-				else res.render('offers.ejs',{title:'Available offers',offer:docs,errors: errors});
-	    	
 
-			});
-			
-		}else
-			{
-							console.log("succ");
-		
-		var newOffer= {
-					  businessName:req.body.businessName,
-					  description:req.body.description,
-				      category:req.body.category,
-					  validTill:req.body.validTill
+    	var errors =req.validationErrors();
+    	//	console.log(req.body.businessName);
 
-						}
-				offers.insert(newOffer,function(err,res){
-					if(err)
-					{
-							console.log(err);
-					}
-					res.redirect('/offers');
+        console.log(req.body);
 
-				});	
-}
-},
+    		if (errors)
+    		{
+    			console.log("err");
+    			 offers.find(function (err, docs) {
+
+
+    				if(err) res.json(err);
+    				else res.render('offers.ejs',{title:'Available offers',offer:docs,errors: errors});
+
+
+    			});
+
+    		}else
+    			{
+
+
+    		var newOffer= new offers({
+    					businessName: req.body.businessName,
+    					  description: req.body.description,
+    				      category: req.body.category,
+    					 validTill: req.body.validTill });
+
+    				newOffer.save();
+    }
+    },
 
 getAllBookings:function(req, res){
       var x ;
-      if(req.user.category=='Cinema')
-      {
-        {cinema.findOne({name:req.user.businessName},function(err, cinema){
+      var a=[];
 
+     if(req.user.category=='Cinema')
+      {
+
+        {Cinema.findOne({name:req.user.businessName},function(err, cinema){
+            x=cinema.booked;
             if(err)
                 res.send(err.message);
-            else if (!cinema)
-            return res.status(401).send("No bookings are made yet");
+            else if (x.length==0){
+            a[0]="No bookings are made yet";
+             res.json(a);
+           }
             else{
-                x=cinema.booked;
-                res.render("viewBookings",{x})
+
+                a[0]=x;
+                a[1]=req.user.category;
+             res.json(a);
               }
         })
     }
 }
 
 
-else if (req.user.category=='trampoline')
-{trampoline.findOne({businessName:req.user.businessName},function(err, trampoline){
-
+else if (req.user.category=='Trampoline')
+{Trampoline.findOne({businessName:req.user.businessName},function(err, trampoline){
+   x=trampoline.booked;
     if(err)
         res.send(err.message);
-        else if (!trampoline){
-        return res.status(401).send("No bookings are made yet");
-      }
+        else if (x.length==0){
+        a[0]="No bookings are made yet";
+         res.json(a);
+       }
     else{
-           x=trampoline.booked;
-        res.render("viewBookings",{x})
+
+           a[0]=x;
+           a[1]=req.user.category;
+        res.json(a);
       }
 })
 }
 else if (req.user.category=='Kora')
-{kora.findOne({businessName:req.user.businessName},function(err, kora){
+{Kora.findOne({businessName:req.user.businessName},function(err, kora){
 
-    if(err)
-        res.send(err.message);
-        else if (!kora)
-        return res.status(401).send("No bookings are made yet");
+  x=kora.booked;
+   if(err)
+       res.send(err.message);
+       else if (x.length==0){
+       a[0]="No bookings are made yet";
+        res.json(a);
+      }
     else{
-         x=kora.booked;
-        res.render("viewBookings",{x})
+
+         a[0]=x;
+         a[1]=req.user.category;
+      res.json(a);
       }
 })
 }
 
 else if (req.user.category=='Fight')
-{fight.findOne({name:req.user.businessName},function(err, fight){
+{Fight.findOne({name:req.user.businessName},function(err, fight){
 
-    if(err)
-        res.send(err.message);
-        else if (!fight){
-        return res.status(401).send("No bookings are made yet");}
+  x=fight.booked;
+   if(err)
+       res.send(err.message);
+       else if (x.length==0){
+       a[0]="No bookings are made yet";
+        res.json(a);
+      }
     else{
-      x=fight.booked;
-        res.render("viewBookings",{x})
+
+      a[0]=x;
+      a[1]=req.user.category;
+   res.json(a);
       }
 })
 }
 
 else if (req.user.category=='Malahy')
-{malahy.findOne({businessName:req.user.businessName},function(err, malahy){
+{Malahy.findOne({businessName:req.user.businessName},function(err, malahy){
 
-    if(err)
-        res.send(err.message);
-    else if (!malahy){
-        return res.status(401).send("No bookings are made yet");}
+  x=malahy.booked;
+   if(err)
+       res.send(err.message);
+       else if (x.length==0){
+       a[0]="No bookings are made yet";
+        res.json(a);
+      }
     else{
-         x=malahy.booked;
-        res.render("viewBookings",{x})
+
+         a[0]=x;
+         a[1]=req.user.category;
+      res.json(a);
       }
 })
 }
 else if (req.user.category=='Race')
-{race.findOne({businessName:req.user.businessName},function(err, race){
+{Race.findOne({businessName:req.user.businessName},function(err, race){
 
-    if(err)
-        res.send(err.message);
-        else if (!race){
-        return res.status(401).send("No bookings are made yet");}
+  x=race.booked;
+   if(err)
+       res.send(err.message);
+       else if (x.length==0){
+       a[0]="No bookings are made yet";
+        res.json(a);
+      }
     else{
-          x=race.booked;
-        res.render("viewBookings",{x})
+
+          a[0]=x;
+          a[1]=req.user.category;
+       res.json(a);
       }
 })
 }
 else if (req.user.category=="Escape Room")
-{escapeRoom.findOne({businessName:req.user.businessName},function(err, escapeRoom){
+{EscapeRoom.findOne({businessName:req.user.businessName},function(err, escapeRoom){
 
-    if(err)
-        res.send(err.message);
-        else if (!escapeRoom){
-        return res.status(401).send("No bookings are made yet");}
+  x=escapeRoom.booked;
+   if(err)
+       res.send(err.message);
+       else if (x.length==0){
+       a[0]="No bookings are made yet";
+        res.json(a);
+      }
     else{
-           x=escapeRoom.booked;
-        res.render("viewBookings",{x});
+
+           a[0]=x;
+           a[1]=req.user.category;
+        res.json(a);
       }
 
 })
@@ -384,29 +431,39 @@ else if (req.user.category=="Escape Room")
 }
 
 else if (req.user.category=='Theatre')
-{theatre.findOne({name:req.user.businessName},function(err, theatre){
+{Theatre.findOne({name:req.user.businessName},function(err, theatre){
 
-    if(err)
-        res.send(err.message);
-        else if (!theatre){
-        return res.status(401).send("No bookings are made yet");}
+  x=theatre.booked;
+   if(err)
+       res.send(err.message);
+       else if (x.length==0){
+       a[0]="No bookings are made yet";
+        res.json(a);
+      }
     else{
-        x=theatre.booked;
-        res.render("viewBookings",{x})
+
+        a[0]=x;
+        a[1]=req.user.category;
+     res.json(a);
       }
 })
 }
 
 else if (req.user.category=='Concert')
-{concert.findOne({name:req.user.businessName},function(err, concert){
+{Concert.findOne({name:req.user.businessName},function(err, concert){
 
-    if(err)
-        res.send(err.message);
-        else if (!concert){
-        return res.status(401).send("No bookings are made yet");}
+  x=concert.booked;
+   if(err)
+       res.send(err.message);
+       else if (x.length==0){
+       a[0]="No bookings are made yet";
+        res.json(a);
+      }
     else{
-        x=concert.booked;
-        res.render("viewBookings",{x})
+        
+        a[0]=x;
+        a[1]=req.user.category;
+     res.json(a);
       }
 })
 }
@@ -442,16 +499,209 @@ addBusiness: function(req, res){
 	business.cancelingPenalty = req.body.cancelingPenalty;
 
         business.save(function(err){
-            
+
 		if (err) {
 			//res.json(amr);
                  res.send("Cannot create");
                 }else{
-			
+
                     res.send("Created Successfuly");
                 }
             });
 	//}
+},
+updateCinema : function(req, res){
+
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var screenName = req.body.screenName;
+    var screenMovie = req.body.screenMovie;
+    var screenSeats = req.body.screenSeats;
+    var screenTimeSlot = req.body.screenTimeSlot;
+    var price = req.body.price;
+	var seats = screenSeats;
+	seats = seats.split(',');
+   	 var TS= screenTimeSlot
+	TS=TS.split(',');
+
+
+    Cinema.update({name:name},{$push:{"screenNumber":{
+                                    name: screenName,
+                                    movies: screenMovie,
+                                    seats: seats,
+                                     timeSlots:TS}},
+			                          $set:{"price":price}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+  },
+
+updateConcerts: function(req, res){
+
+    //var name = req.user.name;
+    var name = 'RANA';
+    var eventName = req.body.eventName;
+    var timeSlot = req.body.timeSlot;
+    var eventDate = req.body.eventDate;
+    var price = req.body.price;
+
+   Concert.update({businessName:name},{ $set:{"eventName":eventName},
+                                        $set:{"timeSlot":timeSlot},
+                                        $set:{"eventDate":eventDate},
+                                        $set:{"price":price}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+    },
+updateEscapeRooms: function(req, res){
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var roomName = req.body.roomName;
+    var roomPrice = req.body.roomPrice;
+    var roomTS = req.body.roomTS;
+    var roomMinAge = req.body.roomMinAge;
+    var roomMinteam = req.body.roomMinteam;
+    var roomMaxTeam = req.body.roomMaxTeam;
+   var TS= roomTS
+ 	TS=TS.split(',');
+
+    EscapeRoom.update({name:name},{$push:{"room":{
+                                    name: roomName,
+                                    price: roomPrice,
+                                    timeSlots: TS,
+                                     minAge:roomMinAge,
+                                    minAgeNumber:roomMinteam,
+                                  maxTeamNumber:roomMaxTeam}}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+    },
+
+updateFight: function(req, res){
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var gameName = req.body.gameName;
+    var gameFieldTS = req.body.gameFieldTS;
+    var gamePrice = req.body.gamePrice;
+    var gameMinAge = req.body.gameMinAge;
+    var gameMinteam = req.body.gameMinteam;
+    var gameMaxTeam = req.body.gameMaxTeam;
+    var gameTS = req.body.gameTS;
+    var TS = gameFieldTS
+    var TS1 = gameTS
+    TS1 = TS1.split(',');
+    TS = TS.split(',');
+
+    Fight.update({name:name},{$push:{"game":{
+                               name: gameName,
+                               fields: TS,
+                               price: gamePrice,
+                               minAge: gameMinAge,
+                               teamMinNumber: gameMinteam,
+                               teammaxNumber: gameMaxTeam,
+                               timeSlots: TS1}}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+    },
+updateKora: function(req, res){
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var fieldName = req.body.fieldName;
+    var fieldAVSlots = req.body.fieldAVSlots;
+    var price = req.body.price;
+
+
+    Kora.update({businessName:name},{$push:{"name":fieldName},
+                                     $push:{"availableSlots":fieldAVSlots},
+                                     $set:{"price":price}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+    },
+
+updateRace: function(req, res){
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var maxNumberOfCarts = req.body.maxNumberOfCarts;
+    var availableSlots = req.body.availableSlots;
+    var minNumberOfPeople = req.body.minNumberOfPeople;
+    var price = req.body.price;
+
+    Race.update({businessName:name},{$set:{"maxNumberOfCarts":maxNumberOfCarts},
+                                     $push:{"availableSlots":availableSlots},
+                                     $set:{"price":price},
+                                     $set:{"minNumberOfPeople":minNumberOfPeople}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+    },
+
+updateTrampoline: function(req, res){
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var timeSlots = req.body.timeSlots;
+    var price = req.body.price;
+
+
+    Trampoline.update({businessName:name},{$push:{"timeSlots":timeSlots},
+                                           $set:{"price":price}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+    },
+updateMalahy: function(req, res){
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var ticketType = req.body.ticketType;
+    var ticketGamesTS = req.body.ticketGamesTS;
+    var ticketPrice = req.body.ticketPrice;
+    var malahyType = req.body.malahyType;
+    var TS = ticketGamesTS
+    TS = TS.split(',')
+
+
+    Malahy.update({businessName:name},{$push:{"tickets":{
+                                      ticketType: ticketType,
+                                      games: TS,
+                                      price:ticketPrice}},
+                                      $set:{"malahyType":malahyType}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
+    },
+updateTheatre: function(req, res){
+    //var name = req.user.name;
+    var name = 'Breakout';
+    var hallName = req.body.hallName;
+    var hallSeatsTS = req.body.hallSeatsTS;
+    var hallShows = req.body.hallShows;
+    var hallTSTS = req.body.hallTSTS;
+    var Price = req.body.Price;
+    var TS = hallSeatsTS
+    var TS1 = hallTSTS
+    TS = TS.split(',')
+    TS1 = TS1.split(',')
+
+
+    Theatre.update({name:name},{$push:{"hall":{
+                                name:hallName,
+                                shows: hallShows,
+                                seats: TS,
+                                timeSlots: TS1},
+                                $set:{"price":Price}}}, function(err,doc){
+    if(err)console.log(err);
+    else console.log('Added');
+    });
+
     }
 
 

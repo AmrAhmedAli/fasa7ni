@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html >
-<script type="text/javascript" src="js/angular.min.js"></script>
+
   <head>
     <meta charset="utf-8">
-    <title>Fasa7ni - Homepage</title>
+    <title>Fasa7ni</title>
   </head>
-  <body ng-app="UC">
-    <div  ng-include src="'index.html'"></div>
+  <body >
+
     <!-- Section Intro Slider
     ================================================== -->
     <div id="carousel-example-generic" class="carousel intro slide">
@@ -14,7 +14,7 @@
     	<ol class="carousel-indicators">
     		<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
     		<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    		<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+
     	</ol>
     	<!-- Wrapper for slides -->
     	<div class="carousel-inner" role="listbox">
@@ -27,64 +27,10 @@
 
     			</div>
     		</div>
-    		<!-- /.item -->
-    		<!-- Second slide -->
-    		<div id="about"class="item" style="background-image:url(img/Cairo.jpg)">
-    			<div id="about"	class="carousel-caption">
-
-    				<h1 data-animation="animated zoomInRight">
-    				Sign-In </h1>
-    				<br></br>
-    				<div class="regularform">
-    					<div class="done">
-    						<div class="alert alert-success">
-    							<button type="button" class="close" data-dismiss="alert">×</button>
-    							Your request has been sent. Thank you!
-    						</div>
-    					</div>
-    					<form method="post" action="contact.php" id="signInForm" class="text-left">
-    						<input name="email" type="text" class="col-md-6 norightborder" placeholder="Your Email *">
-    						<input name="password" type="password" class="col-md-6" placeholder="Password *">
-    						<input type="submit" id="submit" class="contact submit btn btn-primary btn-xl" value="Sign In">
-    					</form>
-    				</div>
-    			</div>
-
-    		</div>
-
-    		<!-- /.item -->
-    		<!-- Third slide -->
-    		<div  class="item" style="background-image:url(img/Cairo.jpg)">
-    			<div  class="carousel-caption">
-    				<h1 data-animation="animated bounceInRight">
-    				Special Offers</h1>
-    				<br>
-    				<br>
-
-          <div class="text-left">
-    			<div class="ddd" ng-view></div>
-
-         </div>
-    				</div>
-
-
-    		</div>
-    		<!-- /.item -->
-
+    		
 
     	</div>
-    	<!-- /.carousel-inner -->
-    	<!-- Controls (currently displayed none from style.css)-->
-    	<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    	<span class="sr-only">Previous</span>
-    	</a>
-    	<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    	<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    	<span class="sr-only">Next</span>
-    	</a>
-    </div>
-    <!-- /.carousel -->
+
 
     <!-- Section Contact
     ================================================== -->
@@ -97,15 +43,18 @@
     		<p>
     			 Business owner? Send us a request to add your business here.
     		</p>
-    		<div class="regularform">
+    		<div class="regularform" >
     			<div class="done">
     				<div class="alert alert-success">
     					<button type="button" class="close" data-dismiss="alert">×</button>
     					Your request has been sent. Thank you!
     				</div>
     			</div>
-    			<form method="post" action="contact.php" id="businessform" class="text-left">
-    				<input name="email" type="text" class="col-md-6 norightborder" placeholder="Your Email *">
+    			<form method="post" action="contact.php" id="businessform" class="text-left" name="business" novalidate>
+            <div class="form-group" ng-class="{ 'has-error' : business.email.$invalid && business.email.$touched }">
+    				<input name="email" type="text" class="col-md-6 norightborder" placeholder="Your Email *" required class="form-control" >
+            <p ng-show="business.email.$invalid && business.email.$touched" class="help-block">You name is required.</p>
+          </div>
     				<input name="password" type="password" class="col-md-6" placeholder="Password *">
     				<input name="businessName" type="text" class="col-md-6" placeholder="Your Business Name *">
     				<input name="credit" type="text" class="col-md-6" placeholder="Your Credit Card Number *">
@@ -119,5 +68,6 @@
     </div>
     </div>
     </section>
+
   </body>
 </html>

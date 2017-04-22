@@ -8,6 +8,15 @@ body {
 	font-size:15px;
 	color:#777;
 	line-height:1.7;
+
+}
+#footer{
+    position:bottom;
+    height:200px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
 }
 hr {
 	max-width:50px;
@@ -65,12 +74,17 @@ p {
 .ddd {
 	font-size:25px;
 	font-family:Dosis;
-	height: 230px;
-	width:  1000px;
+	color:white;
+
+
+}
+.ayy {
+	height: 200px;
+	width:  1300px;
     overflow-y: scroll;
-		overflow-x: hidden;
-
-
+		overflow-x: scroll;
+		position: fixed;
+    left: 50	;
 }
 .btn {
 		padding:16px 30px;

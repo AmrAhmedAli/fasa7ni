@@ -26,15 +26,15 @@ router.post('/postPicturesRedirect', isLoggedIn, function(req,res){
 });
 router.post('/postPictures', upload.single('avatar'), serviceProviderController.postPictures);
 
-router.get('/cinemas',visitorController.viewCinemas);
-router.get('/concerts',visitorController.viewConcerts);
-router.get('/escaperooms',visitorController.viewEscapeRooms);
-router.get('/fight',visitorController.viewFights);
-router.get('/kora',visitorController.viewKoras);
-router.get('/malahy',visitorController.viewMalahy);
-router.get('/race',visitorController.viewRace);
-router.get('/theatre',visitorController.viewTheatre);
-router.get('/trampoline',visitorController.viewTrampoline);
+router.get('/cinemas/reviews',visitorController.viewCinemas);
+router.get('/concerts/reviews',visitorController.viewConcerts);
+router.get('/escaperooms/reviews',visitorController.viewEscapeRooms);
+router.get('/fight/reviews',visitorController.viewFights);
+router.get('/kora/reviews',visitorController.viewKoras);
+router.get('/malahy/reviews',visitorController.viewMalahy);
+router.get('/race/reviews',visitorController.viewRace);
+router.get('/theatre/reviews',visitorController.viewTheatre);
+router.get('/trampoline/reviews',visitorController.viewTrampoline);
 
 router.post('/search', userController.search);
 
@@ -93,12 +93,12 @@ router.get('/Bookings',serviceProviderController.getAllBookings);
 
 //router.get('/tasks',userController.list_all_tasks) ;
 //router.post('/create',userController.create_a_task) ;
-router.post('/rate',userController.rate_place) ; 
-//router.get('/maint',userController.maintenacemode) ; 
-router.get('/count',userController.count_a) ; 
+router.post('/rate',userController.rate_place) ;
+//router.get('/maint',userController.maintenacemode) ;
+router.get('/count',userController.count_a) ;
 
-//router.get('/task4',userController.read_a_task) ; 
-//router.put('/task4',userController.update_a_task); 
+//router.get('/task4',userController.read_a_task) ;
+//router.put('/task4',userController.update_a_task);
 //router.delete('/task4',userController.delete_a_task);
 
 	router.post('/booking',userController.postBooking);
@@ -114,7 +114,7 @@ router.get('/count',userController.count_a) ;
 
 router.use('/index',function(req,res){
 
-    res.render('index.ejs') ; 
+    res.render('index.ejs') ;
 
 }) ;
 
@@ -126,7 +126,7 @@ res.render('index2.ejs') ;
 
 
 router.use('/404',function(req,res){
-res.render('404.ejs'); 
+res.render('404.ejs');
 
 });
 

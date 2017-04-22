@@ -10,7 +10,7 @@ var DB_URI = "mongodb://localhost:27017/fassa7ni";
 
 var app = express();
 
-app.set('view engine', 'jade');
+//app.set('view engine', 'jade');
 
 // configure app
 app.use(bodyParser.urlencoded({extended:false}));
@@ -29,7 +29,7 @@ mongoose.connect(DB_URI);
 app.use(router);
 
 app.get('/',function(req,res){
-      res.sendFile(path.join(__dirname + '/layana/index.html'));
+      res.sendFile('/layana/index.html');
 });
 
 // start the server

@@ -5,6 +5,14 @@
     <title></title>
   </head>
   <body ng-controller="searchController">
+    <div  class="item active" style="background-image:url(img/Cairo.jpg)">
+      <div  class="carousel-caption">
+        <h1 data-animation="animated bounceInRight">
+        Results</h1>
+        <br>
+        <br>
+        <div class="ayy">
+
     <table class="col-xs-12">
       <tr>
 
@@ -14,16 +22,20 @@
 
       </tr>
 
-      <tr ng-repeat="item in protocolList">
+      <tr >
 
-        <td>{{item.name}}</td>
-        <td>{{item.location}}</td>
-        <td>{{item.category}}</td>
+        <td>{{results.name}}</td>
+        <td>{{results.location}}</td>
+        <td>{{results.category}}</td>
 
 
       </tr>
 
-    </table>
-    
+    </table> 
+  </div>
+</div>
+</div>
+
+
   </body>
 </html>

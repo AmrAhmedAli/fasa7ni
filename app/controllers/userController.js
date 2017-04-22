@@ -262,87 +262,88 @@ viewCategories : function(req,res){
 
 			});
 		},
-viewCinemas : function(req,res){
+    viewCinemas : function(req,res){
 
-			cinema.find({},function (err, docs) {
+    			cinema.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('CINEMAplaces.ejs',{title:'Available Cinemas',cinema:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
-viewConcerts : function(req,res){
+    			});
+    		},
+    viewConcerts : function(req,res){
 
-			concert.find({},function (err, docs) {
+    			concert.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('CONCERTplaces.ejs',{title:'Available Concerts',concert:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
-viewEscapeRooms : function(req,res){
+    			});
+    		},
+    viewEscapeRooms : function(req,res){
 
-			escapeRoom.find({},function (err, docs) {
+    			escapeRoom.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('ESCAPEplaces.ejs',{title:'Available Escape Rooms',escapeRoom:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
-viewFights : function(req,res){
+    			});
+    		},
+    viewFights : function(req,res){
 
-			fight.find({},function (err, docs) {
+    			fight.find({},function (err, docs) {
 
-				if(err) res.json(err);
-					else res.render('FIGHTplaces.ejs',{title:'Available Fights',fight:docs});
+    				if(err) res.json(err);
+    					else res.json(docs);
 
-			});
-		},
-viewKora : function(req,res){
+    			});
+    		},
+    viewKora : function(req,res){
 
-			kora.find({},function (err, docs) {
+    			kora.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('KORAplaces.ejs',{title:'Available Kora',kora:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
-viewMalahy : function(req,res){
+    			});
+    		},
+    viewMalahy : function(req,res){
 
-			malahy.find({},function (err, docs) {
+    			malahy.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('MALAHYplaces.ejs',{title:'Available Malahy',malahy:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
-viewRaces : function(req,res){
+    			});
+    		},
+    viewRaces : function(req,res){
 
-			race.find({},function (err, docs) {
+    			race.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('RACEplaces.ejs',{title:'Available Races',race:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
-viewTrampolines : function(req,res){
+    			});
+    		},
+    viewTrampolines : function(req,res){
 
-			trampoline.find({},function (err, docs) {
+    			trampoline.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('TRAMPOLINEplaces.ejs',{title:'Available Trampolines',trampoline:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
-viewTheatres : function(req,res){
+    			});
+    		},
+    viewTheatres : function(req,res){
 
-			theatre.find({},function (err, docs) {
+    			theatre.find({},function (err, docs) {
 
-				if(err) res.json(err);
-				else res.render('THEATREplaces.ejs',{title:'Available Theatres',theatre:docs});
+    				if(err) res.json(err);
+    				else res.json(docs);
 
-			});
-		},
+    			});
+    		},
+
  newBooking:function(req, res){
         var email = req.user.email;
         var description = null;
@@ -603,17 +604,20 @@ viewBusinessPage: function(req,res)
   },
 
 getAllOffers:function(req, res){
-
+   var x;
         Offers.find({}).exec(function(err, offers){
 
-            if(err)
-                res.send(err.message);
-            else if(offers.length==0)
-            {
-              return res.json("No offers available");
-            }
-            else
-                res.json(offers);
+           if(err)
+               res.send(err.message);
+               else if (!offers){
+               x="No offers";
+                res.json(x);
+              }
+            else{
+
+             res.json(offers);
+              }
+
         })
     },
 
