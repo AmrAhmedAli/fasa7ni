@@ -1,0 +1,41 @@
+
+	<html ng-app="viewTH">
+
+	<form class="form">
+
+	<body ng-controller= "viewTHController">
+
+		<html ng-app="viewTR">
+
+			<form class="form">
+
+			<body ng-controller= "viewTRController">
+				<div id="carousel-example-generic" class="carousel intro slide">
+					<!-- Indicators -->
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+
+						<!-- Third slide -->
+						<div  class="item active" style="background-image:url(img/theatre.jpg)">
+							<div  class="carousel-caption">
+				<h1>Theatre</h1>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-left" ng-repeat="item in place">
+						<li>
+						<a class="ddd" href="#page-top">{{item.name}}</a>
+						</li>
+
+					</ul>
+
+				</div>
+				</div>
+				</div>
+				</div>
+				</div>
+
+				</body>
+			 </form>
+			</html>

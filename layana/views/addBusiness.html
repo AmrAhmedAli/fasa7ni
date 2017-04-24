@@ -1,0 +1,111 @@
+<div class = "page-header">
+	<h1>Add A New Business</h1>
+</div>
+
+<form ng-submit = "serviceprovider.addBusiness(regData);" ng-upload method="post" name=serviceForm novalidate>
+	<h1>
+	<div ng-class = "{'has-error' : serviceForm.bname.$invalid && serviceForm.bname.$touched}">	
+	<label>Business Name:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business name" ng-model = "regData.name" name = "bname" required>
+	<p ng-show = "serviceForm.bname.$invalid && serviceForm.bname.$touched" class = "help-block"> Please Enter Your Business Name</p>
+	<br>
+	</div>
+	
+	<div ng-class = "{'has-error' : serviceForm.location.$invalid && serviceForm.location.$touched}">	
+	<label>Location:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Location" ng-model = "regData.location" name = "location" required>
+	<p ng-show = "serviceForm.location.$invalid && serviceForm.location.$touched" class = "help-block"> Please Enter Your Business Location</p>
+	<br>
+	</div>
+	
+	<div ng-class = "{'has-error' : serviceForm.category.$invalid && serviceForm.category.$touched}">
+	<label>Category:</label>
+	<select class ="form-control" ng-model = "regData.category" name= "category" required>
+ 	 <option value="Cinema">Cinema</option>
+ 	 <option value="Concert">Concert</option>
+ 	 <option value="EscapeRoom">Escape Room</option>
+ 	 <option value="Fight">Fight</option>
+	 <option value="Kora">Kora</option>
+	 <option value="Malahy">Malahy</option>
+	 <option value="Race">Race</option>
+	 <option value="Theater">Theater</option>
+	 <option value="Trampoline">Trampoline</option>
+	</select>
+	<p ng-show = "serviceForm.category.$invalid && serviceForm.category.$touched" class = "help-block"> Please Choose One Of The Categories</p>
+	<br>
+	</div>
+
+	<div ng-class = "{'has-error' : serviceForm.emails.$invalid && serviceForm.emails.$touched}">
+	<label>Email:</label>
+	 <textarea class ="form-control" name = "emails" type="text" rows="1" cols="30" placeholder= "Enter List of Emails" ng-model = "regData.emails" required></textarea>
+	<p ng-show = "serviceForm.emails.$invalid && serviceForm.emails.$touched" class = "help-block"> Please Enter At Least One Email</p>
+	<br>
+	<div>
+	
+	<div ng-class = "{'has-error' : serviceForm.numbers.$invalid && serviceForm.numbers.$touched}">
+	<label>Number:</label>
+	<textarea class ="form-control"  name = "numbers" type="text" rows="1" cols="30" placeholder= "Enter List of Numbers" ng-model = "regData.numbers" required></textarea>
+	<p ng-show = "serviceForm.emails.$invalid && serviceForm.emails.$touched" class = "help-block"> Please Enter At Least One Number</p>
+	<br>
+	</div>
+
+	
+	<div ng-class = "{'has-error' : serviceForm.age.$invalid && serviceForm.age.$touched}">
+	<label>Age Requirement:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Business Age Restrictions" ng-model = "regData.ageRequirement" name="age" required>
+	<p ng-show = "serviceForm.age.$invalid && serviceForm.age.$touched" class = "help-block"> Please Enter Your Age Restrictions</p>
+	<br>
+	</div>
+
+	<div ng-class = "{'has-error' : serviceForm.address.$invalid && serviceForm.address.$touched}">
+	<label>Address:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Address" ng-model = "regData.address" name="address" required>
+	<p ng-show = "serviceForm.address.$invalid && serviceForm.address.$touched" class = "help-block"> Please Enter Your Address</p>
+	<br>
+	</div>
+	
+	<div ng-class = "{'has-error' : serviceForm.hours.$invalid && serviceForm.hours.$touched}">
+	<label>Opening Hours:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business opening hours" ng-model = "regData.openingHours" name="hours" required>
+	<p ng-show = "serviceForm.hours.$invalid && serviceForm.hours.$touched" class = "help-block"> Please Enter Your Business Opening Hours</p>
+	<br>
+	</div>
+
+	<div ng-class = "{'has-error' : serviceForm.policy.$invalid && serviceForm.policy.$touched}">
+	<label>Canceling Policy:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Policy on canceling booking" ng-model = "regData.cancelingPolicy" name="policy" required>
+	<p ng-show = "serviceForm.hours.$invalid && serviceForm.hours.$touched" class = "help-block"> Please Enter Your Booking Cancelation Policy</p>
+	<br>
+	</div>
+
+	<div ng-class = "{'has-error' : serviceForm.deadline.$invalid && serviceForm.deadline.$touched}">
+	<label>Deadline To Cancel:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Deadline of canceling booking" ng-model = "regData.deadlinetoCancel" name="deadline" required>
+	<p ng-show = "serviceForm.deadline.$invalid && serviceForm.deadline.$touched" class = "help-block"> Please Enter Your Booking Deadline</p>
+	<br>
+	</div>
+
+	
+	<div ng-class = "{'has-error' : serviceForm.penality.$invalid && serviceForm.penality.$touched}">
+	<label>Canceling Penalty:</label>
+	<input class ="form-control" type="text" placeholder= "Enter Your Business Penalty on canceling booking" ng-model = "regData.cancelingPenalty" name="penality" required>
+	<p ng-show = "serviceForm.penality.$invalid && serviceForm.penality.$touched" class = "help-block"> Please Enter Your Booking Cancelation Penality</p>
+	<br>
+	</div>
+
+	
+	<div ng-class = "{'has-error' : serviceForm.logo.$invalid && serviceForm.logo.$touched}">
+	<label>Logo:</label>
+	<input class ="form-control" type="file" name="post_image" onchange="angular.element(this).scope().uploadFile(this.files)" name="logo" required/>
+	<p ng-show = "serviceForm.logo.$invalid && serviceForm.logo.$touched" class = "help-block"> Please Attach A LOGO</p>
+	<br>
+	</div>
+
+
+	<button class = "btn btn-primary" type="submit" ng-disabled = "serviceForm.$invalid">Submit</button>
+</form>
+<br>
+<div ng-show = "SC.error">{{ SC.error }}</div>
+<br></br>
+
+

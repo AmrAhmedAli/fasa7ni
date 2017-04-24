@@ -1,0 +1,42 @@
+<html ng-app = "escapeRoom">
+<h1> New Escape Room </h1>
+<form class="form" ng-submit = "businessEscapeRoom.updateEscapeRoom(regData);" ng-upload method="post">
+<body ng-controller = "addEscapeRoom">
+  <table class="col-xs-12">
+    <tr>
+
+
+      <tr>
+      <th>Room Name</th> <td><input class ="form-control" type="text"  ng-model = "regData.name"> <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Room Price</th> <td><input class ="form-control" type="text"  ng-model = "regData.price"> <br> </td>
+      </tr>
+   
+      <tr>
+      <th>Room Time Slots</th> <td><input class ="form-control" type="text" ng-model = "regData.timeSlots"> <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Minimum Age</th> <td><input class ="form-control" type="text"  ng-model = "regData.minAge"> <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Minimum Team No.</th> <td><input class ="form-control" type="text"  ng-model = "regData.minAgeNumber"> <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Maximum Team No.</th> <td><input class ="form-control" type="text"  ng-model = "regData.maxTeamNumber"> <br> </td>
+      </tr>
+      
+         
+              <td>
+          <button class="add-doc btn btn-danger col-xs-12">Add</button>
+        </td>
+	
+  </table>
+</body>
+</form>
+</html>
+

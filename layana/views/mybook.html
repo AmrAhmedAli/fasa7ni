@@ -1,0 +1,35 @@
+<html ng-app = "AM">
+<h1> Your Bookings </h1>
+<form class="form">
+<body ng-controller = "test">
+   <table class="col-xs-12">
+    <tr>
+      <th>Email</th>
+      <th>Description</th>
+      <th>Satus</th>
+      <th></th>
+    </tr>
+
+
+      <tr ng-repeat= "item in myBookings">
+        <td>{{item.userEmail}}</td>
+        <td>{{item.description}}</td>
+	<td>{{item.status}}</td>
+	<td>
+<div ng-show = "item.status=='In Progress'">
+         <button class="btn btn-danger col-xs-12">Cancel This Booking</button>
+<div>
+
+        </td>
+      </tr>
+	
+  </table>
+</body>
+</form>
+
+</html>
+
+
+
+
+

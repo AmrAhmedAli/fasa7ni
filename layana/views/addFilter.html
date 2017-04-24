@@ -1,0 +1,25 @@
+<html ng-app = "filter">
+<h1> Add Filter </h1>
+<form class="form" ng-submit = "filter.addFilter(regData);" >
+<body ng-controller = "addFilter">
+
+<br></br>
+  <table class="col-xs-12">
+    
+      <tr>
+      <th>Filter Name</th> <td><input class ="form-control" type="text" ng-model = "regData.name" > <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Field</th> <td><input class ="form-control" type="text"  ng-model = "regData.field"> <br> </td>
+      </tr>
+      
+            <td>
+          <button class="add-doc btn btn-danger col-xs-12">Add</button>
+        </td>
+	
+  </table>
+</body>
+</form>
+</html>
+

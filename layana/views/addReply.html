@@ -1,0 +1,43 @@
+<html ng-app = "AC">
+<h1> Reply To Reviews</h1>
+ <form class="form">
+<body ng-controller = "serviceprovidercontroller1">
+ 
+  <table class="col-xs-12">
+    <tr>
+      <th>User Name</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Reply</th>
+
+      <th></th>
+    </tr>
+
+
+      <tr ng-repeat= "item in myInfo">
+        <td>{{item.nameOfUser}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.body}}</td>
+        <td>
+        <div ng-show = "item.reply==null || item.reply==''" >
+              
+          <input class ="form-control" type="text"  ng-model = "reply">
+          <button type="submit" class="btn btn-danger col-xs-12" ng-click="serviceprovider.addReply(reply,item._id)">Add Reply</button>
+        </div>
+         <div ng-hide = "item.reply==null || item.reply==''">
+              {{item.reply}}
+          
+        </div>
+        </td>
+        
+      </tr>
+  
+  </table>
+
+</body>
+</form>
+
+</html>
+
