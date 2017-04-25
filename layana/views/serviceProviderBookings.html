@@ -18,7 +18,8 @@
           <br>
           <br>
           <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No bookings are made yet'">No bookings are made yet</h2>
-          <div class="ayy" ng-if="bookings[0]!='No bookings are made yet'">
+          <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No business'">You don't have any business yet,please add business first</h2>
+          <div class="ayy" ng-if="bookings[0]!='No bookings are made yet' && bookings[0]!='No business'">
 
           <table class="col-xs-12 ddd">
 
