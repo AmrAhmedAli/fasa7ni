@@ -25,7 +25,7 @@
 
             <tr >
               <th >User</th>
-              <th ng-if="bookings[1]==='Escape Room'">Booked Room</th>
+              <th ng-if="bookings[1]==='EscapeRoom'">Booked Room</th>
               <th ng-if="bookings[1]==='Cinema'">Booked Movie</th>
               <th ng-if="bookings[1]==='Cinema'">Booked Screen</th>
               <th ng-if="bookings[1]==='Cinema'">Booked Seats</th>
@@ -45,7 +45,7 @@
             <tr ng-repeat="item in bookings[0]">
 
               <td>{{item.userEmail}}</td>
-              <td ng-if="bookings[1]==='Escape Room'">{{item.bookedRoom}}</td>
+              <td ng-if="bookings[1]==='EscapeRoom'">{{item.bookedRoom}}</td>
               <td ng-if="bookings[1]==='Cinema'">{{item.bookedMovie}}</td>
               <td ng-if="bookings[1]==='Cinema'">{{item.bookedScreen}}</td>
               <td ng-if="bookings[1]==='Cinema'" ng-repeat="seats in item.bookedSeats">{{seats}}</td>
@@ -80,39 +80,7 @@
 
   <!-- /.carousel -->
 
-  <!-- Section Contact
-  ================================================== -->
-  <section id="request">
-  <div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 text-center">
-
-        <h1 >
-        Special Offers</h1>
-        <br>
-        <br>
-
-        </div>
-
-
-        </div>
-
-      </div>
-
-  </section>
-
-      <!-- /.item -->
-
-
-
-    <!-- /.carousel-inner -->
-    <!-- Controls (currently displayed none from style.css)-->
-
-
-  <!-- /.carousel -->
-
-
-
+ 
 
 
 
