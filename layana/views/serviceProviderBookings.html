@@ -48,10 +48,10 @@
               <td ng-if="bookings[1]==='EscapeRoom'">{{item.bookedRoom}}</td>
               <td ng-if="bookings[1]==='Cinema'">{{item.bookedMovie}}</td>
               <td ng-if="bookings[1]==='Cinema'">{{item.bookedScreen}}</td>
-              <td ng-if="bookings[1]==='Cinema'" ng-repeat="seats in item.bookedSeats">{{seats}}</td>
+              <td ng-if="bookings[1]==='Cinema'"><li  ng-repeat="seats in item.bookedSeats">{{seats}}</li></td>
               <td ng-if="bookings[1]==='Theatre'">{{item.bookedShow}}</td>
               <td ng-if="bookings[1]==='Theatre'">{{item.bookedHall}}</td>
-              <td ng-if="bookings[1]==='Theatre'" ng-repeat="seats in item.bookedSeats">{{seats}}</td>
+              <td ng-if="bookings[1]==='Theatre'"><li  ng-repeat="seats in item.bookedSeats">{{seats}}</li></td>
               <td ng-if="bookings[1]==='Concert'">{{item.bookedEventName}}</td>
               <td ng-if="bookings[1]==='Fight'">{{item.bookedGame}}</td>
               <td ng-if="bookings[1]==='Fight'">{{item.bookedField}}</td>
