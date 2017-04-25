@@ -224,7 +224,7 @@ angular.module('CinemaReviewsCtrl',[]).controller('cinemaController',function($s
 console.log("hh");
   $http({
           method:'GET',
-          url: '/cinemasReviews',
+          url: '/cinemas/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
@@ -235,7 +235,7 @@ angular.module('ConcertReviewsCtrl',[]).controller('concertController',function(
 console.log("hh");
   $http({
           method:'GET',
-          url: '/concertsReviews',
+          url: '/concerts/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
@@ -257,7 +257,7 @@ angular.module('FightReviewsCtrl',[]).controller('fightController',function($sco
 console.log("hh");
   $http({
           method:'GET',
-          url: '/fightReviews',
+          url: '/fight/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
@@ -268,7 +268,7 @@ angular.module('KoraReviewsCtrl',[]).controller('koraController',function($scope
 console.log("hh");
   $http({
           method:'GET',
-          url: '/koraReviews',
+          url: '/kora/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
@@ -279,7 +279,7 @@ angular.module('MalahyReviewsCtrl',[]).controller('malahyController',function($s
 console.log("hh");
   $http({
           method:'GET',
-          url: '/malahyReviews',
+          url: '/malahy/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
@@ -290,7 +290,7 @@ angular.module('RaceReviewsCtrl',[]).controller('raceController',function($scope
 console.log("hh");
   $http({
           method:'GET',
-          url: '/raceReviews',
+          url: '/race/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
@@ -301,7 +301,7 @@ angular.module('TheatreReviewsCtrl',[]).controller('theatreController',function(
 console.log("hh");
   $http({
           method:'GET',
-          url: '/theatreReviews',
+          url: '/theatre/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
@@ -312,7 +312,7 @@ angular.module('TrampolineReviewsCtrl',[]).controller('trampolineController',fun
 console.log("hh");
   $http({
           method:'GET',
-          url: '/trampolineReviews',
+          url: '/trampoline/reviews',
         }).then(function(data){
           $scope.concerts=data.data;
   console.log($scope.concerts);
