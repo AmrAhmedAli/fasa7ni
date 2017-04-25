@@ -309,15 +309,20 @@ getAllBookings:function(req, res){
       {
 
         {Cinema.findOne({name:req.user.businessName},function(err, cinema){
-            x=cinema.booked;
+            		
             if(err)
                 res.send(err.message);
-            else if (x.length==0){
+		else if (!cinema){
+		a[0]="No business";
+        res.json(a);
+	}
+            else if (cinema.booked.length==0){
             a[0]="No bookings are made yet";
              res.json(a);
            }
+		
             else{
-
+		x=cinema.booked;
                 a[0]=x;
                 a[1]=req.user.category;
              res.json(a);
@@ -329,33 +334,44 @@ getAllBookings:function(req, res){
 
 else if (req.user.category=='Trampoline')
 {Trampoline.findOne({businessName:req.user.businessName},function(err, trampoline){
-   x=trampoline.booked;
+   
     if(err)
-        res.send(err.message);
-        else if (x.length==0){
-        a[0]="No bookings are made yet";
-         res.json(a);
-       }
-    else{
-
-           a[0]=x;
-           a[1]=req.user.category;
+                res.send(err.message);
+		else if (!trampoline){
+		a[0]="No business";
         res.json(a);
-      }
+	}
+            else if (trampoline.booked.length==0){
+            a[0]="No bookings are made yet";
+             res.json(a);
+           }
+		
+            else{
+		x=trampoline.booked;
+                a[0]=x;
+                a[1]=req.user.category;
+             res.json(a);
+              }
 })
 }
 else if (req.user.category=='Kora')
 {Kora.findOne({businessName:req.user.businessName},function(err, kora){
 
-  x=kora.booked;
+  
    if(err)
        res.send(err.message);
-       else if (x.length==0){
+	
+	else if (!kora){
+		a[0]="No business";
+        res.json(a);
+	}
+       else if (kora.booked.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
+	
     else{
-
+	 x=kora.booked;
          a[0]=x;
          a[1]=req.user.category;
       res.json(a);
@@ -366,15 +382,22 @@ else if (req.user.category=='Kora')
 else if (req.user.category=='Fight')
 {Fight.findOne({name:req.user.businessName},function(err, fight){
 
-  x=fight.booked;
+  
    if(err)
        res.send(err.message);
-       else if (x.length==0){
+	
+	else if (!fight){
+		a[0]="No business";
+        res.json(a);
+	}
+	
+       else if (fight.booked.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
+	
     else{
-
+       x=fight.booked;
       a[0]=x;
       a[1]=req.user.category;
    res.json(a);
@@ -385,15 +408,20 @@ else if (req.user.category=='Fight')
 else if (req.user.category=='Malahy')
 {Malahy.findOne({businessName:req.user.businessName},function(err, malahy){
 
-  x=malahy.booked;
+  
    if(err)
        res.send(err.message);
-       else if (x.length==0){
+	else if (!malahy){
+		a[0]="No business";
+        res.json(a);
+	}
+       else if (malahy.booked.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
+	
     else{
-
+	 x=malahy.booked;
          a[0]=x;
          a[1]=req.user.category;
       res.json(a);
@@ -403,33 +431,43 @@ else if (req.user.category=='Malahy')
 else if (req.user.category=='Race')
 {Race.findOne({businessName:req.user.businessName},function(err, race){
 
-  x=race.booked;
+  
    if(err)
        res.send(err.message);
-       else if (x.length==0){
+	else if (!race){
+		a[0]="No business";
+        res.json(a);
+	}
+       else if (race.booked.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
+	
     else{
-
+	  x=race.booked;
           a[0]=x;
           a[1]=req.user.category;
        res.json(a);
       }
 })
 }
-else if (req.user.category=="Escape Room")
-{EscapeRoom.findOne({businessName:req.user.businessName},function(err, escapeRoom){
+else if (req.user.category=="EscapeRoom")
+{EscapeRoom.findOne({name:req.user.businessName},function(err, escapeRoom){
 
-  x=escapeRoom.booked;
+  
    if(err)
        res.send(err.message);
-       else if (x.length==0){
+	else if (!escapeRoom){
+		a[0]="No business";
+        res.json(a);
+	}
+       else if (escapeRoom.booked.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
+	
     else{
-
+	    x=escapeRoom.booked;
            a[0]=x;
            a[1]=req.user.category;
         res.json(a);
@@ -442,15 +480,20 @@ else if (req.user.category=="Escape Room")
 else if (req.user.category=='Theatre')
 {Theatre.findOne({name:req.user.businessName},function(err, theatre){
 
-  x=theatre.booked;
+  
    if(err)
        res.send(err.message);
-       else if (x.length==0){
+	else if (!theatre){
+		a[0]="No business";
+        res.json(a);
+	}
+       else if (theatre.booked.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
+	
     else{
-
+	x=theatre.booked;
         a[0]=x;
         a[1]=req.user.category;
      res.json(a);
@@ -459,17 +502,22 @@ else if (req.user.category=='Theatre')
 }
 
 else if (req.user.category=='Concert')
-{Concert.findOne({name:req.user.businessName},function(err, concert){
+{Concert.findOne({businessName:req.user.businessName},function(err, concert){
 
-  x=concert.booked;
+  
    if(err)
        res.send(err.message);
-       else if (x.length==0){
+	else if (!concert){
+		a[0]="No business";
+        res.json(a);
+	}
+       else if (concert.booked.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
+	
     else{
-        
+        x=concert.booked;
         a[0]=x;
         a[1]=req.user.category;
      res.json(a);
