@@ -104,7 +104,7 @@ router.get('/Bookings',serviceProviderController.getAllBookings);
 //router.post('/create',userController.create_a_task) ;
 router.post('/rate',userController.rate_place) ;
 //router.get('/maint',userController.maintenacemode) ;
-router.get('/count',userController.count_a) ;
+router.get('/countUsers',userController.countUsers) ;
 
 //router.get('/task4',userController.read_a_task) ;
 //router.put('/task4',userController.update_a_task);
