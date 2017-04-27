@@ -656,28 +656,18 @@ getAllOffers:function(req, res){
         })
     },
 
-count_a : function(req,res){
- user.count({},function(err,task){
+countUsers : function(req,res){
+  
+ user.count({},function(err,users){
 if(err)
 res.send(err);
 
-else{
+else
 
-if(task==0){
-    res.send("No users have signed up") ;
-//res.json(task);
- console.log("No users have signed up") ;
-//res.json({message:"Hello"})
-
-}
+res.json(users) ;
 
 
-else{
-res.json(task) ;
-console.log(task) ;
-}
 
-}
  });
 
 },
