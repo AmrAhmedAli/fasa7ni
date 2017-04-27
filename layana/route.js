@@ -49,6 +49,7 @@ angular.module('AppRoutes',[])
 	.when('/updateUser',{templateUrl: 'views/updateUserProfile.html' , controller: 'test', controllerAs: 'user1'})
 	.when('/updateBusiness',{templateUrl: 'views/updateBusinessProfile.html' , controller: 'serviceprovidercontroller', controllerAs: 'business1'})
 	.when('/addFilter',{templateUrl: 'views/addFilter.html' , controller: 'addFilter', controllerAs: 'filter'})
+	.when('/CountUsers',{templateUrl:'views/numberOfUsers.html',controller:'countController', controllerAs:'admin'})
 
 .when('/replyReviews',{templateUrl: 'views/addReply.html' , controller: 'serviceprovidercontroller1', controllerAs: 'serviceprovider'})
 
