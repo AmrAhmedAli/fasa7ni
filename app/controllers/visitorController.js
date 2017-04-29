@@ -13,98 +13,98 @@ var reviewController = {
           else{
             res.json(filters);
           }
-            //  res.render('index', {reviews});
+            
       })
   },
 
   viewCinemas:function(req, res){
 
-    Review.find({'category': 'Cinema'},function(err, reviews){
+    Review.find({'category': 'Cinema'},function(err, reviews){ // find all reviews with category cinema
           if(err)
-              res.send(err.message);
+              res.send(err.message); // send error 
           else
-            res.send(reviews);
-            //  res.render('index', {reviews});
+            res.send(reviews); // else send reviews
+            
       })
   },
-  viewConcerts:function(req, res){
+  viewConcerts:function(req, res){ 
 
-    Review.find({'category': 'Concert'},function(err, reviews){
+    Review.find({'category': 'Concert'},function(err, reviews){ // review for concerts
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+            
       })
   },
   viewEscapeRooms:function(req, res){
 
-    Review.find({'category': 'escape rooms'},function(err, reviews){
+    Review.find({'category': 'escape rooms'},function(err, reviews){ // reviews for escape rooms
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+            
       })
   },
   viewFights:function(req, res){
 
-    Review.find({'category': 'Fight'},function(err, reviews){
+    Review.find({'category': 'Fight'},function(err, reviews){ // reviews for fights
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+           
       })
   },
-  viewKoras:function(req, res){
+  viewKoras:function(req, res){ //reviews for kora
 
     Review.find({'category': 'Kora'},function(err, reviews){
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+           
       })
   },
-  viewMalahy:function(req, res){
+  viewMalahy:function(req, res){ // review for malahy
 
     Review.find({'category': 'Malahy'},function(err, reviews){
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+           
       })
   },
-  viewRace:function(req, res){
+  viewRace:function(req, res){ // review for race
 
     Review.find({'category': 'Race'},function(err, reviews){
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+            
       })
   },
-  viewTheatre:function(req, res){
+  viewTheatre:function(req, res){ // review for theatre
 
     Review.find({'category': 'Theater'},function(err, reviews){
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+           
       })
   },
-  viewTrampoline:function(req, res){
+  viewTrampoline:function(req, res){ // review for trampoline
 
     Review.find({'category': 'Trampoline'},function(err, reviews){
           if(err)
               res.send(err.message);
           else
             res.send(reviews);
-            //  res.render('index', {reviews});
+            
       })
   },
 
