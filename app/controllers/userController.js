@@ -35,9 +35,8 @@ var userController={
 
 
   },
-//Here If the user wants to wirte review on a specific category
+
   postReviews: function(req,res){
-//Iam adding a new review in the reviews table with the request attributes coming from the front end
     var newReview = new Review({
                 nameOfUser : req.user.name,
                 title: req.body.titles ,
@@ -845,191 +844,191 @@ viewSearchDirect:  function(req, res){
     },
 viewMalahyp: function(req,res)
   {
-  	var array = [];
+  	var array = []; //creating an empty array
 	  console.log(req.params.bus_name);
   	//var businessName = req.body.businessName || req.query.businessName;
-  	var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+  	var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs) //finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs; //putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	malahy.findOne({'businessName':bn},function(err,docs)
+	malahy.findOne({'businessName':bn},function(err,docs) //finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs; //putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);}); //after finding all the needed information res.json is called with the whole array
 
 	  
   },
   viewConcertp: function(req,res)
   {
-  	var array = [];
+  	var array = []; //creating an empty array
 	  console.log(req.params.bus_name);
   	//var businessName = req.body.businessName || req.query.businessName;
-  	var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+  	var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs) //finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs; //putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	concert.findOne({'businessName':bn},function(err,docs)
+	concert.findOne({'businessName':bn},function(err,docs) //finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs; //putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);}); //after finding all the needed information res.json is called with the whole array
 
 	  
   },
    viewRacep: function(req,res)
   {
-  	var array = [];
+  	var array = []; //creating an empty array
 	  console.log(req.params.bus_name);
   	//var businessName = req.body.businessName || req.query.businessName;
-  	var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+  	var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs)//finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs;//putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	race.findOne({'businessName':bn},function(err,docs)
+	race.findOne({'businessName':bn},function(err,docs) //finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs;//putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);});//after finding all the needed information res.json is called with the whole array
 
 	  
   },
   viewTrampolinep: function(req,res)
   {
-	var array = [];
+	var array = []; //creating an empty array
 	console.log(req.params.bus_name);
   	//var businessName = req.body.businessName || req.query.businessName;
-  	var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+  	var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs)//finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs;//putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	trampoline.findOne({'businessName':bn},function(err,docs)
+	trampoline.findOne({'businessName':bn},function(err,docs) //finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs; //putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);});//after finding all the needed information res.json is called with the whole array
 
 	  
   },
   viewCinemap: function(req,res)
   {
-  	var array = [];
+  	var array = []; //creating an empty array
 	  console.log(req.params.bus_name);
   	//var businessName = req.body.name || req.query.name;
-  var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+  var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs)//finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs; //putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	cinema.findOne({'name':bn},function(err,docs)
+	cinema.findOne({'name':bn},function(err,docs)//finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs;//putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);});//after finding all the needed information res.json is called with the whole array
 
 	  
   },
   viewEscapep: function(req,res)
   {
-  	var array = [];
+  	var array = []; //creating an empty array
 	  console.log(req.params.bus_name);
   	//var businessName = req.body.name || req.query.name;
-  	var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+  	var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs)//finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs;//putting the informations from the business's schema and put it in the first cell in the array
 			
 	
 			});
-	escapeRoom.findOne({'name':bn},function(err,docs)
+	escapeRoom.findOne({'name':bn},function(err,docs)//finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs;//putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);});//after finding all the needed information res.json is called with the whole array
 
 	  
   },
    viewFightp: function(req,res)
   {
-  	var array = [];
+  	var array = []; //creating an empty array
   	//var businessName = req.body.name || req.query.name;
   	console.log(req.params.bus_name);
-	  var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+	  var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs)//finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs;//putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	fight.findOne({'name':bn},function(err,docs)
+	fight.findOne({'name':bn},function(err,docs)//finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs;//putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);});//after finding all the needed information res.json is called with the whole array
 
 	  
   },
    viewKorap: function(req,res)
   {
-  var array = [];
+  var array = []; //creating an empty array
   	//var businessName = req.body.businessName || req.query.businessName;
   	console.log(req.params.bus_name);
-	  var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+	  var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs)//finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs;//putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	kora.findOne({'businessName':bn},function(err,docs)
+	kora.findOne({'businessName':bn},function(err,docs)//finding the bussines category with its name
 		{
-			array[1] = docs;
+			array[1] = docs;//putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);});//after finding all the needed information res.json is called with the whole array
 
 	  
   },
     viewTheatrep: function(req,res)
   {
-  	var array = [];
+  	var array = []; //creating an empty array
 	console.log(req.params.bus_name);
   	//var businessName = req.body.name || req.query.name;
-  	var bn = req.params.bus_name;
-	Business.findOne({'name':bn},function(err,docs)
+  	var bn = req.params.bus_name; //taking the requested businessname and putting it in a variable
+	Business.findOne({'name':bn},function(err,docs)//finding the bussines with its name
 			{ 
-				array[0] = docs;
+				array[0] = docs;//putting the informations from the business's schema and put it in the first cell in the array
 			
 			
 				
 			});
-	theatre.findOne({'name':bn},function(err,docs)
+	theatre.findOne({'name':bn},function(err,docs)//finding the bussines category with its name
 		{
 
 
-			array[1] = docs;
+			array[1] = docs;//putting the informations from the category's schema and put it in the second cell in the array
 			
-		}).then(function(){console.log(array); res.json(array);});
+		}).then(function(){console.log(array); res.json(array);});//after finding all the needed information res.json is called with the whole array
 
 	  
   }
