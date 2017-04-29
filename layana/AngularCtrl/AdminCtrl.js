@@ -71,20 +71,22 @@ $scope.Unblockusr = function(data) {
 
 
 });
-
+//This module is mainly made for business Requests handeling by the admin
   angular.module('TMP',['AppRoutes']).controller('ad_rejcontroller',function($route,$scope,$http){
+//Here i am getting the data of the business requests from request table from the backend
   $http({
 	method: 'GET',
 	 url: '/businessreq',
 	 }).then(function(data) { 
 	$scope.protocolList= data.data;
+	  //This scope now contains the data of the business requests. now i can use it in the front end html
 	console.log($scope.protocolList);
 	
     
 });
-
+//This function is called when the admin press reject business request
 $scope.delsubmit = function(data) {
-
+//I am getting only the Id of the request that is canceled from the front end and i am passing it to the function in the backend
 var userId = data;
 	console.log(userId);
   	$.ajax({
@@ -97,9 +99,9 @@ var userId = data;
   	})
        
       };
-
+//This function is called when the admin press accept business request
 $scope.addsubmit = function(data) {
-
+//I am getting all the details of the request 
 var userId = data.requesterMail;
 var bId = data.businessName;
 var category = data.category;
@@ -109,7 +111,7 @@ var cvv = data.cvv;
 var date = data.validdate;
 var description = data.description;
 var password = data.password;
-
+// I am sending all those details to the backend function in order to add the request to be serviceprovider and add a category by the submitted category in the request
   	$.ajax({
 			method:"POST",
 			url:"/addReq",
