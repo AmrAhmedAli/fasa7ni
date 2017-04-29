@@ -592,7 +592,7 @@ $http({
 
 			};
 });
-//This module is made in order to view user signed in Bookings
+//This module is made in order to view user signed in Bookings and to cancel if needed
 angular.module('AM', []).controller('test', function($scope, $http,$route,$location){
 //Iam getting the data from the backend. The backend handles the session of the user in order to retrieve the correct data from table booking histories
 $http({
@@ -605,7 +605,7 @@ $http({
 	
     
 });
-
+//sends the booking to be cacelled id and other intfo to backend and posts update of cancelled booking
 $scope.cancelBook = function(id,busname,buscat,catid){
 console.log("koko bymasii");
 
