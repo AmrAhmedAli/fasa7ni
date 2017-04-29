@@ -74,10 +74,10 @@ $http({
 	});
 	};
 });
-
+//This module is made for the service provider adding details for his/her business when he/she clicks add business button in the service provider panel page
 angular.module('SC',[]).controller('serviceprovidercontroller2', function($http,$location,$scope){
 var app =this;
-
+//First i am getting the data of the service provider, So that i am restericting the service provider from adding business name or category different from the submitted business of the service provider
 $http({
 	method: 'GET',
 	 url: '/viewServiceP'
@@ -85,10 +85,12 @@ $http({
 
 	$scope.SPcategory = data.data.category;
 	$scope.SPbusiness = data.data.businessName;
+	//Those scopes are now ready to be used in the html. 
 	   
 });
 
 var error;
+	//This method is called when the service provider clicks add business button
 	this.addBusiness = function(regData,Bus,Cat){
 	app.error = false;
 	regData.category = Cat;
@@ -98,8 +100,8 @@ var error;
 	app.errMSG = false;
 	app.SuccessMSG = false;
 
-
-	$http.post('/business',regData).then(function(amm){console.log(amm);if(amm.data.success){app.SuccessMSG = amm.data.message}else{app.errMSG = amm.data.message}});
+	//I am posting the details entered in the front end into the backend function in order to add business
+	$http.post('/business',regData).then(function(amm){console.log(amm);if(amm.data.success){app.SuccessMSG = amm.data.message /*Here if the form submitted correctly i will be displaying the appropriate message handled by the backend*/}else{app.errMSG = amm.data.message /*Here if the form was not submitted i will be displaying the appropriate message handled by the backend*/}});
 	/*data:{"name": regData.name, "location": regData.location, "category":regData.category, "emails":regData.emails, "numbers":regData.numbers, "ageRequirement":regData.ageRequirement,"address": regData.ageRequirement, "openingHours":regData.openingHours , "cancelingPolicy":regData.cancelingPolicy , "deadlinetoCancel":regData.deadlinetoCancel , "cancelingPenalty":regData.cancelingPenalty }
 	 });*/
 
