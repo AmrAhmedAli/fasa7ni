@@ -117,14 +117,17 @@ console.log($scope.place);
 
 });
 });
+//Angular controller to handle the special offers
 angular.module('UserCtrl',[]).controller('userController',function($scope,$http){
-console.log("hh");
+
   $http({
           method:'GET',
+	  //special offers backend route
           url: '/SpecialOffers',
         }).then(function(data){
+	  //return the special offers in an array called protocolList in the scope
           $scope.protocolList=data.data;
-  console.log($scope.protocolList);
+  
         });
 
 });
