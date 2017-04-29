@@ -598,18 +598,22 @@ else if (req.user.category=='Concert')
 
 },
 
+//THis is happening when serviceprovider presses the button addbusiness in service provider panel page
 addBusiness: function(req, res){
 
-	
+//I am getting all data from the front end in order to add a business info	
 	var emails = req.body.emails;
 	emails = emails.split(/\r?\n/);
-
+//The emails is an array that is seperated by \n in the front end
+//So i am splitting that entry to be in an array of elements
 	var number = req.body.numbers;
 	number = number.split(/\r?\n/);
+//The number is an array that is seperated by \n in the front end
+//So i am splitting that entry to be in an array of elements
 	
 	var cat = req.body.category;
 	console.log(cat);
-
+//After entering all the data, I am Inserting those data in the businessTable
         var business = new Business();
         business.name = req.body.name;
         business.location = req.body.location;
@@ -631,11 +635,13 @@ addBusiness: function(req, res){
 		if (err) {
 			console.log(err);
 			res.json({success:false, message:"This Form was not submitted, You Either entered a notvalid data format or there is an existing business with the same Name"});
-                }else{
+               	//If the business was not added i will send this message to the front end
+		}else{
 			res.json({success:true, message:"Your Form is submitted successfuly!, Now you can add details to your category"});
-                }
+               		//If the business was added i will send this message to the front end
+		}
             });
-
+//THen finally i want to insert that business in it's specific category! So i amm checking the category and then enter the Business Name into that category table
 	if(cat == "Cinema"){
 	var cinema = new Cinema();
 	cinema.name = req.body.name;
@@ -683,16 +689,16 @@ addBusiness: function(req, res){
 	}
 
 
-
-	//}
     },
+
+//Here if we request to get all information in the serviceProvider table by the session we are in
 getServiceP : function(req, res){
 
 var service;
 console.log(req.user);
 if(req.user){
 	 service = req.user.email;
-	
+//Here i am finding that email session in the service provider table and then returning the data retrieved
 	ServiceProvider.findOne({'email':service},
 			 function(err,doc){
 				if(err)res.json(err);
