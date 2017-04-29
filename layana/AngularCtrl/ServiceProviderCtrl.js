@@ -120,6 +120,7 @@ $scope.uploadFile = function(files) {
 };
 
 });
+//views all replies for business and adds reply for the ones needed
 angular.module('AC',[]).controller('serviceprovidercontroller1', function($http,$location,$scope,$route){
 
 $scope.reply="";
