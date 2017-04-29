@@ -144,35 +144,35 @@ angular.module('SearchCtrl',[]).controller('searchController',function($scope,$h
 
 angular.module('SignInCtrl',['AppRoutes']).controller('signinController', function($rootScope, $scope, $location, $http) {
 
-		$rootScope.isLoggedIn=false;
-		$scope.showMessage=false;
-		$scope.sendFormUser =function(form){
+		$rootScope.isLoggedIn=false; //set isLogged in to false - this variable is used to hide or sign in message
+		$scope.showMessage=false; // set error message to false
+		$scope.sendFormUser =function(form){ //send form as a user
 
-				var email=$scope.email;
-				var password=$scope.password;
+				var email=$scope.email; //get email
+				var password=$scope.password; //get password
 
 				$http({
-					method: 'POST',
-					url: '/signinUser',
-					data: {'name': name, 'email':email, 'password':password},
+					method: 'POST', // send POST request
+					url: '/signinUser', //backend route for sign in user
+					data: {'name': name, 'email':email, 'password':password},// send data
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				}).then(function(response){
-					var message=response.data;
-					if(message ==='Success'){
-						$rootScope.isLoggedIn=true;
-						$rootScope.isUser=true;
-						$location.url('/');
+					var message=response.data; //get message for response 
+					if(message ==='Success'){ 
+						$rootScope.isLoggedIn=true; // set isLoggedin to true to hhide sign in button and sign up button
+						$rootScope.isUser=true; // verify he is a user to show view profile button
+						$location.url('/'); // redurect to index
 					}
 					else {
-						$scope.showMessage=true;
-						$scope.errorMessage=response.data;
+						$scope.showMessage=true; //show message div
+						$scope.errorMessage=response.data; // set errormessage to error data
 
 					}});
 		};
     $rootScope.isLoggedIn=false;
 	$rootScope.isUser=false;
 		$scope.showMessage=false;
-		$scope.sendFormServiceP =function(form){
+		$scope.sendFormServiceP =function(form){ //send form as sP .. the code is basically the same as user
 
 				var email=$scope.email;
 				var password=$scope.password;
@@ -199,7 +199,7 @@ angular.module('SignInCtrl',['AppRoutes']).controller('signinController', functi
     $rootScope.isLoggedIn=false;
 	$rootScope.isSP=false;
 		$scope.showMessage=false;
-		$scope.sendFormAdmin =function(form){
+		$scope.sendFormAdmin =function(form){ //send for as admin .. code is the same as admin
 
 				var email=$scope.email;
 				var password=$scope.password;
@@ -226,14 +226,14 @@ angular.module('SignInCtrl',['AppRoutes']).controller('signinController', functi
 
 });
 
-angular.module('CinemaReviewsCtrl',[]).controller('cinemaController',function($scope,$http,$route){
-console.log("hh");
+angular.module('CinemaReviewsCtrl',[]).controller('cinemaController',function($scope,$http,$route){ //get reviews for cinema
+
   $http({
           method:'GET',
-          url: '/cinemasReviews',
+          url: '/cinemasReviews', //backend route
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 
 
@@ -249,14 +249,14 @@ $route.reload();
 };
 
 });
-angular.module('ConcertReviewsCtrl',[]).controller('concertController',function($scope,$http,$route){
-console.log("hh");
+angular.module('ConcertReviewsCtrl',[]).controller('concertController',function($scope,$http,$route){ //handle reviews for concerts
+
   $http({
           method:'GET',
           url: '/concertsReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 
 $scope.post = function(data,cat){
@@ -273,13 +273,14 @@ $route.reload();
 
 });
 angular.module('EscapeRoomReviewsCtrl',[]).controller('escapeRoomController',function($scope,$http,$route){
-console.log("hh");
+	//handle reviews for escaperooms
+
   $http({
           method:'GET',
           url: '/escaperoomsReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 
 $scope.post = function(data,cat){
@@ -296,13 +297,13 @@ $route.reload();
 
 });
 angular.module('FightReviewsCtrl',[]).controller('fightController',function($scope,$http,$route){
-console.log("hh");
+//handle reviews for fight
   $http({
           method:'GET',
           url: '/fightReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 
 $scope.post = function(data,cat){
@@ -319,13 +320,13 @@ $route.reload();
 
 });
 angular.module('KoraReviewsCtrl',[]).controller('koraController',function($scope,$http,$route){
-console.log("hh");
+//handle review for kora
   $http({
           method:'GET',
           url: '/koraReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 
 $scope.post = function(data,cat){
@@ -342,13 +343,13 @@ $route.reload();
 
 });
 angular.module('MalahyReviewsCtrl',[]).controller('malahyController',function($scope,$http,$route){
-console.log("hh");
+//handle reviews for malahy
   $http({
           method:'GET',
           url: '/malahyReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 $scope.post = function(data,cat){
 data.category = cat;
@@ -364,13 +365,13 @@ $route.reload();
 
 });
 angular.module('RaceReviewsCtrl',[]).controller('raceController',function($scope,$http,$route){
-console.log("hh");
+//handle review for race
   $http({
           method:'GET',
           url: '/raceReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+ 
         });
 $scope.post = function(data,cat){
 data.category = cat;
@@ -386,13 +387,13 @@ $route.reload();
 
 });
 angular.module('TheatreReviewsCtrl',[]).controller('theatreController',function($scope,$http,$route){
-console.log("hh");
+//handle review for theatre
   $http({
           method:'GET',
           url: '/theatreReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 
 $scope.post = function(data,cat){
@@ -409,17 +410,13 @@ $route.reload();
 
 });
 angular.module('TrampolineReviewsCtrl',[]).controller('trampolineController',function($scope,$http,$route){
-console.log("hh");
-
-
-
-
-  $http({
+//handle reviews for trampoline
+	$http({
           method:'GET',
           url: '/trampolineReviews',
         }).then(function(data){
           $scope.concerts=data.data;
-  console.log($scope.concerts);
+  
         });
 
 $scope.post = function(data,cat){
@@ -438,18 +435,20 @@ $route.reload();
 
 
 angular.module('SignUpCtrl',['AppRoutes']).controller('signupController', function($scope, $rootScope, $location, $http) {
+	//handle sign up
 
-		$scope.show = false;
-		$scope.showPhone = function() {
+		$scope.show = false; //show phone field
+		$scope.showPhone = function() { // show phone field
 				$scope.show = true;
 		};
-		$scope.hidePhone = function() {
+		$scope.hidePhone = function() { //hide phone field
 				$scope.show = false;
 		};
-		$scope.showMessage=false;
+		$scope.showMessage=false; //show error message
 
 		$scope.sendForm =function(form){
-
+			//send form for sign up
+			// set variables
 
 				var name=$scope.name;
 				var email=$scope.email;
@@ -460,23 +459,24 @@ angular.module('SignUpCtrl',['AppRoutes']).controller('signupController', functi
 				var contact=$scope.contact;
 				var phoneNumber=$scope.phoneNumber;
 
-				$http({
+				$http({ //send http request
 					method: 'POST',
 					url: '/signupUser',
 					data: {'name': name, 'email':email, 'password':password, 'confirmedPassword':confirmedPassword, 'gender':gender, 'homelocation':homelocation, 'contact': phoneNumber},
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 				}).then(function(response){
 
-          if(response.data==='Success'){
-            $rootScope.isLoggedIn=true;
-						$location.url('/');
+				  if(response.data==='Success'){  //if message is success
+				    $rootScope.isLoggedIn=true; //hide sign up and log in 
+				   $location.url('/'); //redirect to main page
 
-          }
+				  }
 
-          else{
+				  else{
 
-            $scope.showMessage=true;
-            $scope.errorMessage=response.data};
+				    $scope.showMessage=true; //show error message
+				    $scope.errorMessage=response.data //set th sate to recieved error message
+				  };
 
           })
 
@@ -487,17 +487,15 @@ angular.module('SignUpCtrl',['AppRoutes']).controller('signupController', functi
 });
 
 angular.module('SignOutCtrl',['AppRoutes']).controller('signoutController', function($rootScope, $location, $http) {
-
+	
 		$rootScope.isLoggedIn=false;
-    console.log('I am Here');
-
-			$http({
+   			$http({ //send signout request
 		          method:'POST',
 		          url: '/signOut',
 		        }).then(function(response){
               if(response.data='logout'){
-                $rootScope.isLoggedIn=false;
-                $location.url('/');
+                $rootScope.isLoggedIn=false; //if logged out successfully show sign in and sign up buttons
+                $location.url('/'); // redirect to main page
 
             }
 			})
