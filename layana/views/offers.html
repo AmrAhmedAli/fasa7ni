@@ -14,7 +14,9 @@
           Special Offers</h1>
           <br>
           <br>
-<h2 class="section-heading" style ="color:White" ng-if="protocolList==='No offers'">No offers available right now</h2>
+<!-- if the array returned from the angular controller is empty show a heading saying no offers available -->
+        <h2 class="section-heading" style ="color:White" ng-if="protocolList==='No offers'">No offers available right now</h2>
+<!-- else create a table containing the offers details -->          
           <div style="height: 200px;width:  1200px;  overflow-y: scroll;overflow-x: hidden;position: fixed;left: 50	;" ng-if="protocolList!='No offers'">
           <table class="col-xs-12 ddd">
 
@@ -25,7 +27,7 @@
               <th>Description</th>
               <th>Valid Till</th>
             </tr>
-
+            <!-- Loop on the protocolList array and create rows accordingly -->
             <tr ng-repeat="item in protocolList">
               <td><img src="{{item.logoPath}}"></img></td>
               <td>{{item.businessName}}</td>
