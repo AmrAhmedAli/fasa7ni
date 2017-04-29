@@ -1,36 +1,34 @@
+//import models
+
 var Admin = require('../models/Admin');
 var ServiceProvider  = require('../models/ServiceProvider');
 var User= require('../models/User');
-var validator = require('validator');
-var path    = require("path");
+var validator = require('validator'); //validate strings
+var path    = require("path"); // gets path
 
 
 var verificationController = {
 
   index: function(req, res){
-    res.sendFile(path.join(__dirname, '../../public/index.html'));//virtual page names
+    res.sendFile(path.join(__dirname, '../../public/index.html')); //gets index page
   },
 
   signup: function(req,res){
-    var message=req.flash('mess');
-     res.send(message);
-       // virtual page names
+    var message=req.flash('mess'); //gets message in request
+     res.send(message); // send message
+       
   },
 
   signIn: function(req,res){
 
-    var message=req.flash('mess');
-    console.log(req.user);
-    res.send(message); //virtual page names
+    var message=req.flash('mess'); 
+    res.send(message); //send success or failure message
   },
 
   signOut: function(req, res){
-      console.log(req.body);
+      
       req.logout();
-      console.log("logout");
-
-
-      res.send('logout');
+      res.send('logout'); // send logout to trigger logout in front end
   }
 
 }
