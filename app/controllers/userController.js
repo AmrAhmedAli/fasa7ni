@@ -538,15 +538,17 @@ postBooking: function(req, res){
                 }
             });
     },
-
+	
+//This is called when a User Press view my bookings button in user profile
 viewBooking:  function(req, res){
+//I am getting the email of the user by the session
 	if(req.user){
 		 email = req.user.email;}
 		else{
 		email = "reem@gmail.com";
 		}
-
-        bookingHistory.find({userEmail: email}, function(err, docs){ //Write the condition you want to display the bookings table from which is email: "Webtoken email"
+//I am getting all bookinghistory data of that user email and then sending this data to the front end in order to display it
+        bookingHistory.find({userEmail: email}, function(err, docs){ 
             if(err) res.json(err);
             else res.json(docs);
         });
