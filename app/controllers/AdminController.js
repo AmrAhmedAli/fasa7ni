@@ -31,6 +31,7 @@ blockUser : function(req, res){
 		
 		
 },
+//view all users
 getUsrs: function(req,res){
 User.find({},'name email',function(err,usersktir){
 	res.json(usersktir);
@@ -56,7 +57,8 @@ searchUser:function(req,res){
 	  
 
     },
-	blockUser : function(req, res){
+//searches for user by id and blocks him by chaging the boolean to true
+blockUser : function(req, res){
 console.log("ghjfghfcd");
 		var idd = req.body.Uid;
 			console.log(idd);
@@ -68,7 +70,7 @@ console.log("ghjfghfcd");
 			});
 		
 		},
-
+//searches for user by id anf unblocks him by changing boolean to false
 unblockUser : function(req, res){
 console.log("unblock");
 		var idd = req.body.Uid;
