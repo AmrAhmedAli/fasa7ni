@@ -10,12 +10,12 @@
 		<p><input type="text" ng-model="test"></p>
 		<table>
 		<tr> <th>Users: </th></tr>
-			<tr ng-repeat = "user in usrs | filter:test">
+			<tr ng-repeat = "user in usrs | filter:test"> //looping through the users and filtering them every time a new character is entered the users will be filtered according to it
 							<td></td>
-							 <td>{{user.name}} </td>
+							 <td>{{user.name}} </td> // showing the users' names
 							 	<td>&nbsp</td>
 								 	<td>&nbsp</td>
-							  <td>{{user.email}} </td>
+							  <td>{{user.email}} </td> //showing the users' emails
                <td><button type ="submit" ng-click =  "findusr(user._id)" >Select</a></td>
 			  
 			  <td>  <button type ="submit" ng-click =  "blockusr(user._id)" >Block</a></td>
