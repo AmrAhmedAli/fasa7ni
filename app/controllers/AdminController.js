@@ -141,8 +141,10 @@ Maintenance.findOneAndUpdate({isMaintenance:false},true, {new: true}, function(e
 
 });
 },
-
+//This is called when the admin press the button accept in the businessrequests view
 addBusinessReq: function(req, res1) {
+//I am sending the data that is accepted from the front end in req
+//Those data are needed in order to Add a new Service Provider If the request is accepted
   	 var userId = req.body.userId || req.query.userId;
   	 var password = req.body.password || req.query.password;
 	 var bId = req.body.bId || req.query.bId;
@@ -154,11 +156,14 @@ addBusinessReq: function(req, res1) {
 	 var description = req.body.description || req.query.description;
 
 console.log(password);
+//First i am removing the request from the business Requests Table
 	   	  Request.remove({requesterMail: userId}, function(err, res) {
 		   console.log(userId);
       		 if (err) { res1.json({"err": err}); } else { console.log("succeded"); res1.json({success: true})};
    		});
-      //new SearchDirect({business_name: userId.business_name});
+//Then i am adding the data to a service Providers table
+	
+
 	var servicesproviders = new ServiceProviders;
 	servicesproviders.email = userId;
 	servicesproviders.password = password;
@@ -172,12 +177,15 @@ console.log(password);
 	if(err){console.log(err);console.log("cannot create");
 	}else{
 	console.log("created");
+	//Here Finnally a new ServiceProvider is made by the Email and password entered in the businessRequest form
 	}
 });
 
 	},
 
+//This is called when the admin press the button reject in the businessrequests view
 deleteBusinessReq: function(req, res1) {
+//All what is done here is removing the businessRequest from the table Request Because the admin rejects it
   	 var userId = req.body.userId || req.query.userId;
 	   console.log("here");
  	  Request.remove({requesterMail: userId}, function(err, res) {
@@ -186,10 +194,11 @@ deleteBusinessReq: function(req, res1) {
    		});
 	},
 
-
+//This is called when the admin press the button View Business Requests in the Admin panel page
 viewBusinessReq:  function(req, res){
 var request = [];
 	console.log('hna1'); 
+//Here i am retreving the data from The Request Table and sending it to the front end in order to display it
         Request.find({}).exec(function(err, docs){ 
             if(err) res.json(err);
             else{	console.log('hna2');  res.json(docs);};
