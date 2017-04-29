@@ -1,30 +1,33 @@
 <html ng-app="myApp">
 <body ng-controller="spController">
   <div id="carousel-example-generic" class="carousel intro slide">
-    <!-- Indicators -->
+  
     <ol class="carousel-indicators">
       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 
     </ol>
-    <!-- Wrapper for slides -->
+   
     <div class="carousel-inner" role="listbox">
 
 
-      <!-- Third slide -->
       <div  class="item active" style="background-image:url(img/Cairo.jpg)">
         <div  class="carousel-caption">
           <h1 data-animation="animated bounceInRight">
           Bookings</h1>
           <br>
           <br>
+          <!-- check if the bookings array returned from the angular controller is empty show a head containing No bookings are made yet-->
           <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No bookings are made yet'">No bookings are made yet</h2>
+          <!-- if the service provider has no business yet show him a relevant message-->
           <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No business'">You don't have any business yet,please add business first</h2>
+          <!-- If there are bookings found show a table containing the bookings information-->
           <div class="ayy" ng-if="bookings[0]!='No bookings are made yet' && bookings[0]!='No business'">
 
           <table class="col-xs-12 ddd">
 
             <tr >
               <th >User</th>
+              <!-- show different information according to the service provider's category-->
               <th ng-if="bookings[1]==='EscapeRoom'">Booked Room</th>
               <th ng-if="bookings[1]==='Cinema'">Booked Movie</th>
               <th ng-if="bookings[1]==='Cinema'">Booked Screen</th>
@@ -67,18 +70,14 @@
         </div>
 
 
-      <!-- /.item -->
-
 
     </div>
-    <!-- /.carousel-inner -->
-    <!-- Controls (currently displayed none from style.css)-->
-
+   
   </div>
 </div>
 </div>
 
-  <!-- /.carousel -->
+ 
 
  
 
