@@ -13,9 +13,9 @@
            
 
 					<!-- Third slide -->
-					<div  class="item active" style="background-image:url(img/escape.jpg)">
+					<div  class="item active" style="background-image:url(img/escape.jpg)"> //background's image
             <div  class="carousel-caption">
-              <h1>{{epages[1].name}}</h1>
+              <h1>{{epages[1].name}}</h1> //getting the business's name
               <hr class ="primary">
               <div style="height: 200px;width:  1200px;  overflow-y: scroll;overflow-x: hidden;position: fixed;left: 50	;">
               <table class = "col-md-8 col-md-offset-2 text-center">
@@ -26,12 +26,12 @@
  </tr> 
   <tr class="ddd">
                   <td style="font-size:20px">
-                   <li ng-repeat= "ad in epages[0].address">
+                   <li ng-repeat= "ad in epages[0].address"> //getting the business's addresses
                            {{ad}}
                    </li> 
                    </td>
-                  <td style="font-size:20px"> {{epages[0].rate}}</td>
-                  <td style="font-size:20px"> {{epages[0].openingHours}}</td>
+                  <td style="font-size:20px"> {{epages[0].rate}}</td> //getting the business's rating
+                  <td style="font-size:20px"> {{epages[0].openingHours}}</td> //getting the business's opening hours
                    
   
    </tr> 
@@ -43,10 +43,10 @@
             <tr class="ddd" > <th  style="font-size:20px">Contact: </th></tr>
             <tr class="ddd" > 
                <td style="font-size:20px">
-                    <li ng-repeat= "e in epages[0].contactInfo.email">
+                    <li ng-repeat= "e in epages[0].contactInfo.email"> //getting the business's emails
                            Email :{{e}}
                    </li>
-                   <li ng-repeat= "n in epages[0].contactInfo.number">
+                   <li ng-repeat= "n in epages[0].contactInfo.number"> //getting the business's numbers
                           Number:  {{n}}
                    </li>  
                    </td>
@@ -66,15 +66,15 @@
               
               </tr>
              <tr class = "ddd">
-               <td style="font-size:20px" >{{SN.name}} </td>
-                <td style="font-size:20px" >{{SN.price}} </td>
-                <td style="font-size:20px" >{{SN.minAge}} </td>
-                <td style="font-size:20px" >{{SN.maxTeamNumber}} </td>
+               <td style="font-size:20px" >{{SN.name}} </td> //getting the room's name
+                <td style="font-size:20px" >{{SN.price}} </td> //getting the room's price
+                <td style="font-size:20px" >{{SN.minAge}} </td> //getting the room's minimum age
+                <td style="font-size:20px" >{{SN.maxTeamNumber}} </td> //getting the room's maximum team number
               </tr>
               <tr class ="ddd">
                 <th>timeSlots :</th>
 
-                <td><li ng-repeat="m in SN.timeSlots">{{m}}</li></td>
+                <td><li ng-repeat="m in SN.timeSlots">{{m}}</li></td> //getting the business's time slots
 
               </tr>
                
