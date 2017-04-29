@@ -43,7 +43,7 @@ $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded
        // $location.path('/finalusrs'); 
 })
   }
-
+//blocks user using blockusr function and posts update
 $scope.blockusr = function(data) {
     var userId = data;
    $http({
@@ -56,7 +56,7 @@ $scope.blockusr = function(data) {
     $route.reload();
 
 }
-
+//unblockes usre by calling unblockusr function and posts update
 $scope.Unblockusr = function(data) {
     var userId = data;
    $http({
