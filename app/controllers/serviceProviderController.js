@@ -710,7 +710,7 @@ if(req.user){
 
 },
 
-
+//gets the id of the review that willbe replied to and sets the reply of the review with the reply of the business provider
 addReply : function(req, res){
 
 		var reply = req.body.reply;
@@ -724,7 +724,7 @@ addReply : function(req, res){
 				console.log(doc);
 			});
 		},
-
+//views all reviews of business by it's name to be able to view and reply
 	viewSreviews : function(req, res){
 
 
