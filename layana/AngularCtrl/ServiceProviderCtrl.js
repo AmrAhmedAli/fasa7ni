@@ -12,6 +12,8 @@ angular.module('spCtrl',[]).controller('spController',function($scope,$http){
 
 });
 
+//as a service provider i can update my business profile info 
+// the function is called when the signed in service provider chooses update my busines info button
 angular.module('business',[]).controller('serviceprovidercontroller', function($http,$location,$scope){
 $http({
 	method: 'GET',
