@@ -35,8 +35,9 @@ var userController={
 
 
   },
-
+//Here If the user wants to wirte review on a specific category
   postReviews: function(req,res){
+//Iam adding a new review in the reviews table with the request attributes coming from the front end
     var newReview = new Review({
                 nameOfUser : req.user.name,
                 title: req.body.titles ,
