@@ -10,7 +10,7 @@
 
 					<div  class="item active" style="background-image:url(img/concert.jpg)">
             <div  class="carousel-caption">
-              <h1>{{pagee[1].businessName}}</h1>
+              <h1>{{pagee[1].businessName}}</h1> //getting the business's name
               <hr class ="primary">
               <div style="height: 200px;width:  1200px;  overflow-y: scroll;overflow-x: hidden;position: fixed;left: 50	;">
               <table class = "col-md-8 col-md-offset-2 text-center">
@@ -22,13 +22,13 @@
   </tr> 
   <tr class="ddd">
                   <td style="font-size:20px">
-                   <li ng-repeat= "ad in pagee[0].address">
+                   <li ng-repeat= "ad in pagee[0].address"> //getting the business's addresses
                            {{ad}}
                    </li> 
                    </td>
-                  <td style="font-size:20px"> {{pagee[0].rate}}</td>
-                  <td style="font-size:20px"> {{pagee[0].openingHours}}</td>
-                   <td style="font-size:20px">{{pagee[1].price}}</td>
+                  <td style="font-size:20px"> {{pagee[0].rate}}</td> //getting the business's rating
+                  <td style="font-size:20px"> {{pagee[0].openingHours}}</td> //getting the business's opening hours
+                   <td style="font-size:20px">{{pagee[1].price}}</td> //getting the business's price
   
   
    </tr> 
@@ -40,10 +40,10 @@
             <tr class="ddd" > <th  style="font-size:20px">Contact: </th></tr>
             <tr class="ddd" > 
                <td style="font-size:20px">
-                    <li ng-repeat= "e in pagee[0].contactInfo.email">
+                    <li ng-repeat= "e in pagee[0].contactInfo.email"> //getting the business's emails
                            Email :{{e}}
                    </li>
-                   <li ng-repeat= "n in pagee[0].contactInfo.number">
+                   <li ng-repeat= "n in pagee[0].contactInfo.number"> //getting the business's numbers
                           Number:  {{n}}
                    </li>  
                    </td>
@@ -62,9 +62,9 @@
             </tr>
             <tr class ="ddd">
               <td style="font-size:20px"> {{pagee[1].businessName}} </td>
-                     <td style="font-size:20px" >{{pagee[1].eventName}} </td>
-                  	 <td style="font-size:20px">{{pagee[1].timeSlot}} </td>
-                  	 <td style="font-size:20px">{{pagee[1].eventDate}} </td>
+                     <td style="font-size:20px" >{{pagee[1].eventName}} </td> //getting the event's name
+                  	 <td style="font-size:20px">{{pagee[1].timeSlot}} </td> //getting the business's time slots
+                  	 <td style="font-size:20px">{{pagee[1].eventDate}} </td> //getting the event's date
             </tr>
             <tr>
           <td>
