@@ -6,16 +6,17 @@ var Request = require('../models/BusinessRequests');
 var ServiceProviders = require('../models/ServiceProvider');
 
 var AdminController = {
+	//as an admin i can add a new search filter
 	addFilter : function(req, res){
   
-		var name = req.body.name;
-		var field = req.body.field;
+		var name = req.body.name; // name of the search filter
+		var field = req.body.field; // the field where the filter is supposed to search
 		
 		var newFilter = new filter({
 			'name' : name,
 			'field' : field, 
 		});
-		newFilter.save();
+		newFilter.save(); // saving the new added search filter to the database
 		
 		},
 blockUser : function(req, res){
