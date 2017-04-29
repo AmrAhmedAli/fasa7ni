@@ -236,9 +236,10 @@ angular.module('CinemaReviewsCtrl',[]).controller('cinemaController',function($s
   
         });
 
-
+//This function is used if the user clicks add review in the category cinema
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -258,9 +259,10 @@ angular.module('ConcertReviewsCtrl',[]).controller('concertController',function(
           $scope.concerts=data.data;
   
         });
-
+//This function is used if the user clicks add review in the category Concert
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -282,9 +284,11 @@ angular.module('EscapeRoomReviewsCtrl',[]).controller('escapeRoomController',fun
           $scope.concerts=data.data;
   
         });
-
+//This function is used if the user clicks add review in the category EscapeRoom
+	
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -305,9 +309,10 @@ angular.module('FightReviewsCtrl',[]).controller('fightController',function($sco
           $scope.concerts=data.data;
   
         });
-
+//This function is used if the user clicks add review in the category Fight
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -328,9 +333,10 @@ angular.module('KoraReviewsCtrl',[]).controller('koraController',function($scope
           $scope.concerts=data.data;
   
         });
-
+//This function is used if the user clicks add review in the category Kora
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -351,8 +357,10 @@ angular.module('MalahyReviewsCtrl',[]).controller('malahyController',function($s
           $scope.concerts=data.data;
   
         });
+//This function is used if the user clicks add review in the category Mlahy
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -373,8 +381,10 @@ angular.module('RaceReviewsCtrl',[]).controller('raceController',function($scope
           $scope.concerts=data.data;
  
         });
+//This function is used if the user clicks add review in the category Race
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -395,9 +405,10 @@ angular.module('TheatreReviewsCtrl',[]).controller('theatreController',function(
           $scope.concerts=data.data;
   
         });
-
+//This function is used if the user clicks add review in the category Theatre
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -418,9 +429,10 @@ angular.module('TrampolineReviewsCtrl',[]).controller('trampolineController',fun
           $scope.concerts=data.data;
   
         });
-
+//This function is used if the user clicks add review in the category Trampoline
 $scope.post = function(data,cat){
 data.category = cat;
+	//I am calling the backend function in order to post the review with the data sent from the html
 $http.post('/postreview', data).then(function(response){
 
 $route.reload();
@@ -512,13 +524,14 @@ angular.module('FilterCtrl',[]).controller('filterController',function($scope,$h
           console.log($scope.filters);
 
         });
-
+//When the Visitor presses add business request and fill the form this function is called
 var app =this;
 this.addBusinessReq = function(regData){
 	app.errMSG = false;
 	app.SuccessMSG = false;
 	console.log(regData);
-	$http.post('/businessreq',regData).then(function(amm){console.log(amm);if(amm.data.success){app.SuccessMSG = amm.data.message}else{app.errMSG = amm.data.message}});	
+	//I am posting all of the entered data in the front end, and i am sending it to the backend function
+	$http.post('/businessreq',regData).then(function(amm){console.log(amm);if(amm.data.success){app.SuccessMSG = amm.data.message /*If succeded appropriate message is displayed, this message is handled by the backend*/}else{app.errMSG = amm.data.message /*If Not succeded appropriate message is displayed, this message is handled by the backend*/}});	
 	/*data:{"requesterMail": regData.requesterMail, "password": regData.password, "businessName":regData.businessName, "category":regData.category, "cardNumber":regData.cardNumber, "cvv":regData.cvv,"validdate": regData.validdate, "description":regData.description }
 	 })*/
 
@@ -574,13 +587,16 @@ $http({
 
 			};
 });
+//This module is made in order to view user signed in Bookings
 angular.module('AM', []).controller('test', function($scope, $http,$route,$location){
+//Iam getting the data from the backend. The backend handles the session of the user in order to retrieve the correct data from table booking histories
 $http({
 	method: 'GET',
 	 url: '/booking',
 	 }).then(function(data) { 
 	$scope.myBookings= data.data;
 	console.log($scope.myBookings);
+	//Now That scope will be having the bookings so that i can use it in the html to view all the data inside
 	
     
 });
