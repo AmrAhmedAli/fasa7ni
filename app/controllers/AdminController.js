@@ -19,6 +19,8 @@ var AdminController = {
 		newFilter.save(); // saving the new added search filter to the database
 		
 		},
+	
+//searches for user by mail and changes boolean of blocked to true.
 blockUser : function(req, res){
 
 		var email = req.User.email;
