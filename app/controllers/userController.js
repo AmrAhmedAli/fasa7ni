@@ -51,7 +51,7 @@ var userController={
     newReview.save();
 
   },
-//by the booking id , the catigry andthe business name we search for the booking in all catigories to remove it from the booked array and make the slot availabe for others to book and add penalty for user the we change it's status from boking histoy
+
 deleteFromBus : function(req, res1){
 		
 		var userEmail = req.user.email;
@@ -435,16 +435,18 @@ viewCategories : function(req,res){
 
 getAllOffers:function(req, res){
    var x;
+	//Look in the offers collection in the database
         Offers.find({}).exec(function(err, offers){
-
+           // if there is an error return it
            if(err)
                res.send(err.message);
+		//else check if there is no offers return a message in x
                else if (offers.length===0){
                x="No offers";
                 res.json(x);
               }
             else{
-
+		//else if there is offers found return them as a json object
              res.json(offers);
               }
 
@@ -452,13 +454,13 @@ getAllOffers:function(req, res){
     },
 
 countUsers : function(req,res){
-  
+  // count the users in the database
  user.count({},function(err,users){
 if(err)
 res.send(err);
 
 else
-
+//return the number of users as a json object
 res.json(users) ;
 
 
