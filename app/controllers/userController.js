@@ -282,7 +282,7 @@ deleteFromBus : function(req, res1){
     })
   },
 
- 
+ 	// as a user i can update my profile info
 	updateUser : function(req, res){
 		var email;
 		if(req.user){
@@ -304,12 +304,13 @@ deleteFromBus : function(req, res1){
 	/*  req.checkBody('name', 'Name is required').notEmpty();
 		req.checkBody('password', 'Password is required').notEmpty();
 		req.checkBody('birthdate', 'Birthdate is required').notEmpty(); */
-
+		
 		var userupdate = {name : name,
-			 password : password,
-		 gender : gender,
-		 homelocation : homelocation,
-		 contact : contact};
+			 	  password : password,
+				  gender : gender,
+				  homelocation : homelocation,
+				  contact : contact};
+		// search in the database for the signed in user with the mail and update the info 
 		user.findOneAndUpdate({'email' : email}, 
 			{$set: userupdate},function(err,doc){
 				if(err)console.log(err);
@@ -317,6 +318,7 @@ deleteFromBus : function(req, res1){
 		
 		},
 
+		// as a user i can view my profile info
 		viewMyprofile: function(req,res){
 					var email;
 		if(req.user){
