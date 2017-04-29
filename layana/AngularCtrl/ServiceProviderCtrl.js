@@ -1,9 +1,11 @@
 angular.module('spCtrl',[]).controller('spController',function($scope,$http){
-
+//Service provider controller module for getting the bookings from the backend database
   $http({
           method:'GET',
+	  //Backend route
           url: '/Bookings',
         }).then(function(data){
+	  //return bookings as an array in the scope
           $scope.bookings=data.data;
 
         });
