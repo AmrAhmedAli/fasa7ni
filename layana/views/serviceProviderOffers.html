@@ -1,0 +1,69 @@
+<html ng-app="PostOffer" >
+
+<form class="form"ng-submit="serviceProviderOffer.post(data,SPbusiness,SPcategory);" name=offersForm novalidate>
+
+<body ng-controller= "PostOfferController">
+
+<section id="request">
+<div class="container">
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 text-center">
+		<h2 class="section-heading">Post offers</h2>
+		<hr class="primary">
+		<p>
+			 New offer? post it here.
+		</p>
+		<div class="regularform">
+			<div class="done">
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					Your offer is now posted. Thank you!
+				</div>
+			</div>
+			<form method="post" action="submit" id="offerform" class="text-left" >
+			
+				<div>
+				<span class ="form-control" regData.name = {{SPbusiness}} ng-model = "data.name">{{ SPbusiness }}</span>
+				<br>
+				</div>
+
+				<div>
+				<span class ="form-control" ng-model = "data.category">{{ SPcategory }}</span>
+				<br>
+				</div>
+			
+				<div ng-class = "{'has-error' : offersForm.valid.$invalid && offersForm.valid.$touched}">
+				<input name="valid" type="text" class="col-md-6" placeholder="Your offer's Validation Date * "ng-model="data.validtill" required>
+				<p ng-show = "offersForm.valid.$invalid && offersForm.valid.$touched" class = "help-block"> Please Enter Your Offers Validation date</p>
+				<br>
+				</div>
+				
+				<div ng-class = "{'has-error' : offersForm.description.$invalid && offersForm.description.$touched}">
+				<textarea name="description" class="col-md-12" placeholder="Your Business Description *" ng-model="data.description" required></textarea>
+				<p ng-show = "offersForm.description.$invalid && offersForm.description.$touched" class = "help-block"> Please Enter Your Offers Description</p>
+				<br>
+				</div>
+
+
+				<input type="submit" id="submit" class="contact submit btn btn-primary btn-xl" ng-disabled = "offersForm.$invalid" value="post">
+	
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+</section>
+
+	</div>
+  </body>
+			<div class = "row show-hide-message" ng-show="serviceProviderOffer.SuccessMSG">
+			<div class = "alert alert-success">{{ serviceProviderOffer.SuccessMSG }}</div>
+			</div>
+			<br>
+			<div class = "row show-hide-message" ng-show="serviceProviderOffer.errMSG">
+			<div class = "alert alert-danger">{{ serviceProviderOffer.errMSG }}</div>
+			</div>	
+ </form>
+</html>
+
+

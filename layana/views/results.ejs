@@ -1,0 +1,235 @@
+<html >
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Search</title>
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="layana/css/bootstrap.min.css" type="text/css">
+<!-- Custom Fonts -->
+<link href='layana/font-awesome/css/cool.css' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="layana/font-awesome/css/font-awesome.min.css" type="text/css">
+<!-- Plugin CSS -->
+<link rel="stylesheet" href="layana/css/animate.min.css" type="text/css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="layana/css/style.css" type="text/css">
+
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular-route.js"></script>
+<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="js/angular-animate.js"></script>
+<script type="text/javascript" src="js/angular-animate.min.js"></script>
+<script src="AngularCtrl/UserCtrl.js"></script>
+<script src="route.js"></script>
+<script src="main.js"></script>
+<script src ="AngularCtrl/ServiceProviderCtrl.js"></script>
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top" >
+<div class="container">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header" >
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</button>
+		<a  href="/"><img src="img/1.png" alt="logofasa7ni" style="position:fixed; left:1"></a>
+		<a  href="/"><img src="img/2.png" alt="logofasa7ni" style="position:fixed; bottom:520	;left:1"></a>
+	</div>
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+			<a  href="/">Home</a>
+			</li>
+			<li class="dropdown">
+
+			<a  class="dropbtn" >Cinema</a>
+			<div class="dropdown-content">
+    <a href="/Cinemas">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Kora</a>
+			<div class="dropdown-content">
+    <a href="/Kora">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Fight</a>
+			<div class="dropdown-content">
+    <a href="Fights">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Escape Room</a>
+			<div class="dropdown-content">
+    <a href="/EscapeRooms">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Race</a>
+			<div class="dropdown-content">
+    <a href="/Races">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Trampoline</a>
+			<div class="dropdown-content">
+    <a href="/Trampolines">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Malahy</a>
+			<div class="dropdown-content">
+    <a href="/Malahy">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Theatre</a>
+			<div class="dropdown-content">
+    <a href="/Theatres">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li class="dropdown">
+			<a  class="dropbtn" >Concerts</a>
+			<div class="dropdown-content">
+    <a href="/Concerts">View Category</a>
+    <a href="#">View Reviews</a>
+		</div>
+			</li>
+			<li >
+			<a  href	="/SpecialOffers">Special offers</a>
+			</li>
+			<li>
+			<a class="page-scroll" href="/myBookings">Sign-up</a>
+			</li>
+			<li>
+			<a  href="/SignIn">Sign-in</a>
+			</li>
+     <li>
+			 <form  method="post"  action="/search" id="search">
+ 				<select >
+ 				<option value ="filterBy" selected>Filter By</option>
+ 				<option value=""></option>
+ 				<option value=""></option>
+ 				<option value=""></option>
+ 				<option value=""></option>
+ 				</select>
+ 			<input   name="searchBox" type="text"  placeholder="Search" size = "9"  style= "background-color: transparent; border: 1pt ridge lightgrey">
+ 			<input  action = "/search" type="submit" id="search"  value="Search" style= "background-color: transparent; border: 0pt ridge lightgrey">
+
+ </form>
+
+	</li	>
+
+
+
+ </ul>
+
+	</div>
+	<!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+
+</nav>
+</head>
+<base href="/">
+<body id="page-top"    >
+
+  <div id="carousel-example-generic" class="carousel intro slide">
+    <!-- Indicators -->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+
+      <!-- Third slide -->
+      <div  class="item active" style="background-image:url(img/Cairo.jpg)">
+        <div  class="carousel-caption">
+          <h1 data-animation="animated bounceInRight">
+          Special Offers</h1>
+          <br>
+          <br>
+
+          <div style="height: 200px;width:  1200px;  overflow-y: scroll;overflow-x: hidden;position: fixed;left: 50	;" >
+            <table class="col-xs-12">
+              <tr>
+
+                <th>Name</th>
+                <th>Location</th>
+                <th>Category</th>
+
+              </tr>
+
+              <tr >
+
+                <td>{{results.name}}</td>
+                <td>{{results.location}}</td>
+                <td>{{results.category}}</td>
+
+
+              </tr>
+
+            </table>
+        </div>
+
+
+      <!-- /.item -->
+
+
+    </div>
+    <!-- /.carousel-inner -->
+    <!-- Controls (currently displayed none from style.css)-->
+
+  </div>
+</div>
+</div>
+
+  <!-- /.carousel -->
+
+
+
+
+
+<!-- Section Footer================================================== -->
+
+<section id="footer" class="bg-dark">
+<div class="container">
+
+<div class="row">
+	<div class="col-md-12 text-center">
+		<h1 class="bottombrand wow flipInX">Fasa7ni	</h1>
+		<p>
+			&copy; A Web Application Made By The EMINARKEYS
+		</p>
+	</div>
+</div>
+</div>
+
+</section>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/parallax.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/countto.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/common.js"></script>
+
+</body>
+</html>

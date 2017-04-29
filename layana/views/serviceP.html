@@ -1,0 +1,74 @@
+<html ng-app="SPHP" >
+
+<form class="form">
+
+<body ng-controller = "SPhomepagecontroller">
+
+<section id="request">
+<div class="container">
+<div class="row">
+	<div class="col-md-8 col-md-offset-2 text-center">
+		<div><h2 class="section-heading">Service Provider</h2></div>
+		<hr class="primary">
+		
+		<div class="regularform">
+			
+			<form class="text-left" >
+				
+			
+				<a href = "/replyReviews" class="contact submit btn btn-primary btn-xl" >Reply to Reviews</a>
+				<a href = "/myBookings" class="contact submit btn btn-primary btn-xl" >View Bookings</a>
+				<a href = "/postOffers" class="contact submit btn btn-primary btn-xl" >Post Offers</a>
+				<a href = "/addBusiness" class="contact submit btn btn-primary btn-xl" >Add A Business</a>
+
+
+
+
+
+				<div ng-if="SPcategory == 'Cinema'">
+				<a href = "/newCinema" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Cinema</a>
+				</div>
+
+				<div ng-if="SPcategory == 'Concert'">
+				<a href = "/newConcert" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Concert</a>
+				</div>
+
+				<div ng-if="SPcategory == 'EscapeRoom'">
+				<a href = "/newEscapeRoom" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} EscapeRoom</a>
+				</div>
+	
+				<div ng-if="SPcategory == 'Fight'">
+				<a href = "/newFight" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Fight</a>
+				</div>
+	
+				<div ng-if="SPcategory == 'Kora'">
+				<a href = "/newKora" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Kora</a>
+				</div>
+
+				<div ng-if="SPcategory == 'Malahy'">
+				<a href = "/newMalahy" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Malahy</a>
+				</div>
+
+				<div ng-if="SPcategory == 'Race'">
+				<a href = "/newRace" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Race</a>
+				</div>
+
+				<div ng-if="SPcategory == 'Theater'">
+				<a href = "/newTheatre" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Theater</a>
+				</div>
+
+				<div ng-if="SPcategory == 'Trampoline'">
+				<a href = "/newTrampoline" class="contact submit btn btn-primary btn-xl" >Add Your {{SPbusiness}} Trampoline</a>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+</section>
+
+	</div>
+  </body>	
+ </form>
+</html>

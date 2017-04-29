@@ -1,0 +1,89 @@
+<html ng-app="myApp">
+<body ng-controller="spController">
+  <div id="carousel-example-generic" class="carousel intro slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+
+      <!-- Third slide -->
+      <div  class="item active" style="background-image:url(img/Cairo.jpg)">
+        <div  class="carousel-caption">
+          <h1 data-animation="animated bounceInRight">
+          Bookings</h1>
+          <br>
+          <br>
+          <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No bookings are made yet'">No bookings are made yet</h2>
+          <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No business'">You don't have any business yet,please add business first</h2>
+          <div class="ayy" ng-if="bookings[0]!='No bookings are made yet' && bookings[0]!='No business'">
+
+          <table class="col-xs-12 ddd">
+
+            <tr >
+              <th >User</th>
+              <th ng-if="bookings[1]==='EscapeRoom'">Booked Room</th>
+              <th ng-if="bookings[1]==='Cinema'">Booked Movie</th>
+              <th ng-if="bookings[1]==='Cinema'">Booked Screen</th>
+              <th ng-if="bookings[1]==='Cinema'">Booked Seats</th>
+              <th ng-if="bookings[1]==='Theatre'">Booked Show</th>
+              <th ng-if="bookings[1]==='Theatre'">Booked Hall</th>
+              <th ng-if="bookings[1]==='Theatre'">Booked Seats</th>
+              <th ng-if="bookings[1]==='Concert'">Event Name</th>
+              <th ng-if="bookings[1]==='Fight'">Booked Game</th>
+              <th ng-if="bookings[1]==='Fight'">Booked Field</th>
+              <th ng-if="bookings[1]==='Kora'">Booked Field</th>
+              <th ng-if="bookings[1]==='Malahy'">Number of Tickets</th>
+              <th>Booked Time Slot</th>
+              <th>Payment Method</th>
+              <th>Date of Booking</th>
+            </tr>
+
+            <tr ng-repeat="item in bookings[0]">
+
+              <td>{{item.userEmail}}</td>
+              <td ng-if="bookings[1]==='EscapeRoom'">{{item.bookedRoom}}</td>
+              <td ng-if="bookings[1]==='Cinema'">{{item.bookedMovie}}</td>
+              <td ng-if="bookings[1]==='Cinema'">{{item.bookedScreen}}</td>
+              <td ng-if="bookings[1]==='Cinema'"><li  ng-repeat="seats in item.bookedSeats">{{seats}}</li></td>
+              <td ng-if="bookings[1]==='Theatre'">{{item.bookedShow}}</td>
+              <td ng-if="bookings[1]==='Theatre'">{{item.bookedHall}}</td>
+              <td ng-if="bookings[1]==='Theatre'"><li  ng-repeat="seats in item.bookedSeats">{{seats}}</li></td>
+              <td ng-if="bookings[1]==='Concert'">{{item.bookedEventName}}</td>
+              <td ng-if="bookings[1]==='Fight'">{{item.bookedGame}}</td>
+              <td ng-if="bookings[1]==='Fight'">{{item.bookedField}}</td>
+              <td ng-if="bookings[1]==='Kora'">{{item.bookedField}}</td>
+              <td ng-if="bookings[1]==='Malahy'">{{item.numberOfTickets}}</td>
+              <td>{{item.bookedTimeSlot}}</td>
+              <td>{{item.paymentMethod}}</td>
+              <td>{{item.date | date:'short'}}</td>
+
+            </tr>
+
+          </table>
+        </div>
+
+
+      <!-- /.item -->
+
+
+    </div>
+    <!-- /.carousel-inner -->
+    <!-- Controls (currently displayed none from style.css)-->
+
+  </div>
+</div>
+</div>
+
+  <!-- /.carousel -->
+
+ 
+
+
+
+
+</body>
+</html>

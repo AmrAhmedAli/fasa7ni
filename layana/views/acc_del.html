@@ -1,0 +1,79 @@
+<html ng-app="TMP">
+
+	<form class="form">
+
+	<body ng-controller= "ad_rejcontroller">
+		<div id="carousel-example-generic" class="carousel intro slide">
+			<!-- Indicators -->
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+
+
+				<!-- Third slide -->
+				<div  class="item active" style="background-image:url(img/business-document-signing.jpg)">
+					<div  class="carousel-caption">
+		<h1>Requested Businesses</h1>
+
+		 <table class="col-xs-12">
+
+    <tr class="ddd">
+      <th>Email</th>
+	<th>  </th>
+      <th>BusinessName</th>
+	<th>  </th>
+      <th>Category</th>
+	<th>  </th>	
+      <th>CreditCard</th>
+     	<th>  </th>
+      <th>CVV</th>
+	<th>  </th>
+      <th>ValidDate</th>	
+	<th>  </th>
+      <th>Description</th>
+      <th>  </th>
+    </tr>
+
+
+      <tr class="ddd" ng-repeat= "item in protocolList">
+        <td>{{item.requesterMail}}</td>
+	<td>  </td>
+        <td>{{item.businessName}}</td>
+	<td>  </td>
+	<td>{{item.category}}</td>
+	<td>  </td>
+        <td>{{item.cardNumber}}</td>
+     	<td>  </td>
+        <td>{{item.cvv}}</td>
+	<td>  </td>
+        <td>{{item.validdate}}</td>
+	<td>  </td>
+        <td>{{item.description}}</td>
+	<td>  </td>
+        <td>
+          	<button data-id="#{item.requesterMail}" data-id1="#{item.businessName}" class="add-doc btn btn-danger col-xs-12"ng-click="addsubmit(item)">✔</button>
+        </td>
+        <td>
+          
+		<button type="submit" id="submit" value="Submit" data-id="#{item.requesterMail}" class="btn btn-danger col-xs-12" ng-click="delsubmit(item.requesterMail)">X</button>
+        </td>
+      </tr>
+	
+  </table>
+
+
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+	  </body>
+	 </form>
+	</html>
+
+
+
+
+
+

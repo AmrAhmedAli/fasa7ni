@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+	<html ng-app="UC">
+		
+		<body ng-controller="BookFight">
+    	<form class="form" ng-submit = "FightBook(dataa,fpages[1].name)" onSubmit="alert('Booking Successful');">
+	
+      <div id="carousel-example-generic" class="carousel intro slide">
+				<!-- Indicators -->
+
+				<!-- Wrapper for slides -->
+              
+				<div class="carousel-inner" role="listbox">
+           
+
+					<!-- Third slide -->
+					<div  class="item active" style="background-image:url(img/paintball.jpg)">
+            <div  class="carousel-caption">
+              <h1>{{fpages[1].name}}</h1>
+              <hr class ="primary">
+              <div style="height: 200px;width:  1200px;  overflow-y: scroll;overflow-x: hidden;position: fixed;left: 50	;">
+              <table class = "col-md-8 col-md-offset-2 text-center">
+  <tr class="ddd" > 
+               <th style="font-size:20px"><img src="img/location_icon.png" height:"40" width="40">Address: </th>
+               <th  style="font-size:20px"><img src="img/star_icon.png" height:"40" width="40">Rating:</th>
+               <th  style="font-size:20px"><img src="img/clock_icon.png" height:"40" width="40">Opening Hours: </th>
+ </tr> 
+  <tr class="ddd">
+                  <td style="font-size:20px">
+                   <li ng-repeat= "ad in fpages[0].address">
+                           {{ad}}
+                   </li> 
+                   </td>
+                  <td style="font-size:20px"> {{fpages[0].rate}}</td>
+                  <td style="font-size:20px"> {{fpages[0].openingHours}}</td>
+                  
+  
+   </tr> 
+</table>
+
+          <br></br>
+           <br></br>
+           <table class = "col-md-8 col-md-offset-2 text-center">
+            <tr class="ddd" > <th  style="font-size:20px">Contact: </th></tr>
+            <tr class="ddd" > 
+               <td style="font-size:20px">
+                    <li ng-repeat= "e in fpages[0].contactInfo.email">
+                           Email :{{e}}
+                   </li>
+                   <li ng-repeat= "n in fpages[0].contactInfo.number">
+                          Number:  {{n}}
+                   </li>  
+                   </td>
+            </tr>
+           </table>
+
+            <br></br>
+           <br></br>
+           <br></br>
+          <table class = "col-md-11 col-md-offset-2 text-left" ng-repeat="SN in fpages[1].game">
+             <tr class="ddd" > 
+               <th style="font-size:20px" > Game Name : </th>
+                <th style="font-size:20px" > price : </th>
+                 <th style="font-size:20px" > min Age : </th>
+                  <th style="font-size:20px" > teamMinNumber : </th>
+                   <th style="font-size:20px" > teammaxNumber : </th>
+             </tr>
+             <tr class = "ddd">
+               <td style="font-size:20px" >{{SN.name}} </td>
+                <td style="font-size:20px" >{{SN.price}} </td>
+                  <td style="font-size:20px" >{{SN.minAge}} </td>
+                <td style="font-size:20px" >{{SN.teamMinNumber}} </td>
+                    <td style="font-size:20px" >{{SN.teammaxNumber}} </td>
+                      
+              </tr>
+              <tr class ="ddd">
+                <th>Fields :</th>
+                <td><li ng-repeat="m in SN.fields">{{m}}</li></td>
+
+              </tr>
+               <tr class ="ddd">
+                <th>timeSlots :</th>
+                <td><li ng-repeat="s in SN.timeSlots">{{s}}</li></td>
+
+              </tr>
+          </table> 
+           <hr class ="primary">
+           <input type="text" class="col-md-6" placeholder="Select Game" ng-model = "dataa.game">
+          <input type="text" class="col-md-6" placeholder="Select field" ng-model = "dataa.field">
+          <input type="text" class="col-md-6" placeholder="Select TimeSlot" ng-model = "dataa.TS">
+        <input name="booknow" type="submit" id="submit" class="contact submit btn btn-primary btn-xl" value="BookNow">
+                
+        </div>  
+			          <br>
+            </div>
+          </div>
+        </div>
+      </div>
+		</body>
+      </form>
+	</html>
+
+

@@ -1,0 +1,26 @@
+<html ng-app = "kora">
+<h1> New Kora </h1>
+<form class="form" ng-submit = "businessKora.updateKora(regData);" ng-upload method="post">
+<body ng-controller = "addKora">
+  <table class="col-xs-12">
+    <tr>
+      <th>Field Name</th> <td><input class ="form-control" type="text" ng-model = "regData.name" > <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Time Slots</th> <td><input class ="form-control" type="text"  ng-model = "regData.availableSlots"> <br> </td>
+      </tr>
+   
+      <tr>
+      <th>Price</th> <td><input class ="form-control" type="text" ng-model = "regData.price"> <br> </td>
+      </tr>
+      
+              <td>
+          <button class="add-doc btn btn-danger col-xs-12">Add</button>
+        </td>
+	
+  </table>
+</body>
+</form>
+</html>
+

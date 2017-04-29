@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app = "user" >
+
+  <body ng-controller = "UPD">
+<div class = "page-header">
+	<h1>My Profile </h1>
+</div>
+
+<form class="form" ng-submit = "user1.updateUser(regData);">
+
+  <table class="col-xs-12">
+    <tr>
+      <th>Name</th> <td><input class ="form-control" type="text" ng-model = "regData.name" > <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Gender</th> <td><input class ="form-control" type="text"  ng-model = "regData.gender"> <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Home Location</th> <td><input class ="form-control" type="text"  ng-model = "regData.homelocation"> <br> </td>
+      </tr>
+      
+      <tr>
+      <th>Contact</th> <td><input class ="form-control" type="text"  ng-model = "regData.contact"> <br> </td>
+      </tr>
+         
+              <td>
+          <button type="submit" class="add-doc btn btn-danger col-xs-12">Update</button>
+        </td>
+	
+  </table>
+</form>
+</body>
+
+</html>
+

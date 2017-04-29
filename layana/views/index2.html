@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html ng-app="RAM">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<body>
+
+
+
+<div class ="container" ng-controller="AppCtrl">
+    
+
+    <h1>User ratings</h1>
+
+
+
+    <table class="table">
+            <thead>
+                <tr>
+              <th>Place </th>
+              <th></th>
+              <th>Rate</th>
+         
+              
+          <th>&nbsp;</th>
+
+                </tr>
+            </thead>
+            <tbody>
+             
+ 
+
+                <tr ng-repeat="business in viewbusinesspage">
+                    <td>  {{business.name}} </td>
+                    <td>  {{business.rate}} </td>
+                              
+                     <td><input class="form-control" ng-model="rate"></td>
+                     
+            
+                              <td><button class="btn btn-danger" ng-click="rating(business.name,rate)">Rate</button></td>
+
+
+               </tr>
+
+
+
+            </tbody>
+         </table>
+
+
+
+
+</div>
+
+
+</body>
+
+</html>

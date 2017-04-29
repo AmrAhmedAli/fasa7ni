@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TheaterReviewsCtrl">
+<body ng-controller="theatreController">
+ 
+<form class="form" ng-submit="post(daata,'Theater')" name=reviewsForm novalidate>
+
+<div id="carousel-example-generic" class="carousel intro slide">
+				<!-- Indicators -->
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+
+
+					<!-- Third slide -->
+					<div  class="item active" style="background-image:url(img/theatre.jpg)">
+						<div  class="carousel-caption">
+
+<div >
+  <div class="container">
+    <div class="row">
+  	   <div class="col-lg-12 text-center">
+  		      <h1 data-animation="animated bounceInRight"><b>Reviews</b></h1>
+  		      <hr class="primary">
+  		      <br/>
+  	   </div>
+    </div>
+  </div>
+
+<div style="height: 300px;width:  1200px;  overflow-y: scroll;overflow-x: hidden;position: fixed;left: 50	;" >
+
+<table class = "col-md-8 col-md-offset-2 text-left" ng-repeat="review in concerts">
+<tr class="ddd">
+<th> {{review.title}} </th>
+<td> From: {{review.nameOfUser}} </td>
+<td> At: {{review.date}} </td>
+<td> In: {{review.businessName}} </td>
+</tr>
+<tr class="ddd">
+<td> {{review.body}} </td>
+<td ng-if="review.reply != null"> Business Owner Reply: {{review.reply}} </td>
+</tr>
+<tr>
+<td> <hr class="primary"> </td>
+</tr>
+</table>
+
+
+<div ng-if="isLoggedIn && isUser" >
+<table class = "col-md-8 col-md-offset-2 text-mid">
+<tr>
+<div ng-class = "{'has-error' : reviewsForm.title.$invalid && reviewsForm.title.$touched}">
+	<input class ="form-control" type="text" name="title" placeholder="Title" ng-model= "daata.titles" required/>
+	<p ng-show = "reviewsForm.title.$invalid && reviewsForm.title.$touched" class = "help-block"> Please Enter a Title</p>
+	<br>
+	</div>
+<div ng-class = "{'has-error' : reviewsForm.busName.$invalid && reviewsForm.busName.$touched}">
+	<input class ="form-control" type="text" name="busName" placeholder="BusinessName" ng-model="daata.bus" required/>
+	<p ng-show = "reviewsForm.busName.$invalid && reviewsForm.busName.$touched" class = "help-block"> Please Enter A Business Name</p>
+	<br>
+	</div>
+				<div ng-class = "{'has-error' : reviewsForm.description.$invalid && reviewsForm.description.$touched}">
+				<textarea name="description" class="form-control col-md-12" placeholder="Your Review Here" ng-model="daata.descriptions" required></textarea>
+				<p ng-show = "reviewsForm.description.$invalid && reviewsForm.description.$touched" class = "help-block"> Please Enter The Body of Review</p>
+				<br>
+				</div>
+
+
+				<input type="submit" id="submit" class="contact submit btn btn-primary btn-xl" ng-disabled = "reviewsForm.$invalid" value="post">
+</table>
+</div>
+</tr>
+</div>
+
+	
+
+        </div>
+   </div>
+ </div>
+
+  </div>
+</form>
+
+</body>
+</html>
