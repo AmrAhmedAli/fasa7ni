@@ -124,6 +124,7 @@ postPicturesRedirect: function(req,res){
 
   },
 
+	// as a service provider i can view my business page info
 	viewBusinessProfile: function(req,res){
 		var businessName;
 		if(req.user){
@@ -131,12 +132,15 @@ postPicturesRedirect: function(req,res){
 		else{
 		businessName = "BreakOut";
 		}
+		// search the database for the signed in service provider by the name
 		Business.findOne({'name' : businessName},function(err,doc){
 				if(err)console.log(err);
 				else res.json(doc);
 			});
 	},
-updateBusiness : function(req, res){
+	
+	// as a service provider i can update my business profile info
+	updateBusiness : function(req, res){
 		
 		var businessName ;
 		if(req.user){
@@ -146,17 +150,17 @@ updateBusiness : function(req, res){
 		else{
 		businessName = "breakOut";
 		}
-		var name = req.body.name;
-		var location = req.body.location;
-		var contactInfoEmail = req.body.email;
-		var contactInfoNumber = req.body.number;
-		var ageRequirement = req.body.ageRequirement;
-		var address = req.body.address;
-		var openingHours = req.body.openingHours;
-		var logo = req.body.logo;
-		var cancelingPolicy = req.body.cancelingPolicy;
-		var deadlinetoCancel = req.body.deadlinetoCancel;
-		var cancelingPenalty = req.body.cancelingPenalty;
+		var name = req.body.name; //update business name
+		var location = req.body.location; //update business location
+		var contactInfoEmail = req.body.email; //update business email
+		var contactInfoNumber = req.body.number; //update business phone number
+		var ageRequirement = req.body.ageRequirement; //update business age requirement
+		var address = req.body.address; //update business address
+		var openingHours = req.body.openingHours; //update business opening hours
+		var logo = req.body.logo; //update business logo
+		var cancelingPolicy = req.body.cancelingPolicy; //update business canceling policy
+		var deadlinetoCancel = req.body.deadlinetoCancel; //update business deadline to cancel
+		var cancelingPenalty = req.body.cancelingPenalty; //update business canceling penalty
 
 	
 		var updateBusiness = { 
@@ -171,7 +175,8 @@ updateBusiness : function(req, res){
 			deadlinetoCancel : deadlinetoCancel,
 			cancelingPenalty : cancelingPenalty,
 			name : name};
-
+			
+			// search the database for the signed in service provider and update the entered data
 			Business.findOneAndUpdate({'name' : businessName}, 
 			{$set: updateBusiness},function(err,doc){
 				if(err)console.log(err);
