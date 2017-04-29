@@ -370,28 +370,32 @@ viewOffers : function(req,res){
   
 
 },
-
+//Get all the bookings made in this service provider's business
 getAllBookings:function(req, res){
       var x ;
       var a=[];
-
+//checking conditions depending on the service provider's category
      if(req.user.category=='Cinema')
       {
-
+        // If the category is cinema look in the cinema collections for the business name
         {Cinema.findOne({name:req.user.businessName},function(err, cinema){
             		
             if(err)
                 res.send(err.message);
 		else if (!cinema){
+			// if the cinema is not found return an error message in a[0] 
 		a[0]="No business";
         res.json(a);
 	}
             else if (cinema.booked.length==0){
+		    //if cinema is found but the booked array in cinema is empty return no bookings are made in a[0]
             a[0]="No bookings are made yet";
              res.json(a);
            }
 		
             else{
+		    /* if the booked array in cinema is not empty, put it in x and put x in a[0] and put the category of the service
+		     provider in a[1] then return array a as a json object*/
 		x=cinema.booked;
                 a[0]=x;
                 a[1]=req.user.category;
