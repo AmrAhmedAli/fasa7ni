@@ -107,16 +107,19 @@ var reviewController = {
             
       })
   },
-
+//As Visitor i can add business Request by submitting the form in the main page
 	postBusinessReq:  function(req, res){
         var x;
 	console.log(req.body.category);
 	var e = req.body.requesterMail;
 	console.log(e);
+//I am getting the email entered in th form and checking if it is in the Service Provider table
 	ServiceProvider.find({'email': e}, function(err, docs){
 	console.log(docs);
 		if(docs.length===0){
+		//If that email didn't repeat before so the docs will be empty
 			console.log('fadya');
+			//SO i am going to add the form details to the business requests table
 			var request = new Request();
         		request.requesterMail = req.body.requesterMail;
         		request.password = req.body.password;
@@ -130,11 +133,13 @@ var reviewController = {
 	
        			 request.save(function(err){
             			 if (err) {
+					 //If an error occured that means that there is an already existing request
 						
 				            console.log( "There is an already Existing Request with the same mail");
                        
                 			res.json({success:false,message: 'There is an already Existing Request with the same mail'});
                 		}else{
+					//If not so the request will be forwarded correctly
                                console.log("Your Business Request is Sent to the Admin");
                                
                     			res.json({success:true,message: 'Your Business Request is Sent to the Admin'});
@@ -144,6 +149,7 @@ var reviewController = {
 			}
 
 		else{
+			//If the docs.length != 0 that means that there is exesting serviceprovider with the same mail
 			console.log("There is an already Existing Service Provider with the same mail");
 
 			res.json({success:false,message: 'There is an already Existing Service Provider with the same mail'});
