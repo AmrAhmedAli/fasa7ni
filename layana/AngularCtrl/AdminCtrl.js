@@ -1,5 +1,7 @@
 
 angular.module('filter',['AppRoutes']).controller('addFilter', function($http,$location,$scope){
+	// as an admin i can add a new search filter
+	// the function is called when add filter button is chosen by the admin
 	this.addFilter = function(regData){
 		$http({
 		method: 'POST',
