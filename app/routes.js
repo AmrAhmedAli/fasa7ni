@@ -11,11 +11,16 @@ var visitorController= require('./controllers/visitorController');
 var userController=require('./controllers/userController');
 var AdminController = require('./controllers/AdminController');
 
+
+//sign up .. in both success and failure senarios rediirect to sign up to send message in flash
 router.post('/signupUser', passport.authenticate('local-signup', {successRedirect:'/signup',failureRedirect: '/signup',successFlash: true, successFlash: false}));
-
-
+//sign in user using predefined function authenticate and local login user strategy
 router.post('/signinUser', passport.authenticate('local-login-user',{successRedirect : '/signin', failureRedirect : '/signin', successFlash: true, failureFlash: true}));
+
+//sign in admin using predefined function authenticate and local login user strategy .. signin sends message
 router.post('/signinProvider', passport.authenticate('local-login-provider',{successRedirect : '/signin', failureRedirect : '/signin', failureFlash : true}));
+
+//sign in admin using predefined function authenticate and local login user strategy .. signin sends message
 router.post('/signinAdmin', passport.authenticate('local-login-admin',{successRedirect : '/signin', failureRedirect : '/signin', failureFlash : true}));
 
 router.post('/postPicturesRedirect', isLoggedInProvider, function(req,res){
@@ -35,15 +40,15 @@ router.post('/updateCat/theatre',serviceProviderController.updateTheatre);
 router.post('/updateCat/trampolines',serviceProviderController.updateTrampoline);
 
 router.get('/filters',visitorController.getAllFilters);
-router.get('/cinemasReviews',visitorController.viewCinemas);
-router.get('/concertsReviews',visitorController.viewConcerts);
-router.get('/escaperoomsReviews',visitorController.viewEscapeRooms);
-router.get('/fightReviews',visitorController.viewFights);
-router.get('/koraReviews',visitorController.viewKoras);
-router.get('/malahyReviews',visitorController.viewMalahy);
-router.get('/raceReviews',visitorController.viewRace);
-router.get('/theatreReviews',visitorController.viewTheatre);
-router.get('/trampolineReviews',visitorController.viewTrampoline);
+router.get('/cinemasReviews',visitorController.viewCinemas); //view reviews
+router.get('/concertsReviews',visitorController.viewConcerts); //view reviews
+router.get('/escaperoomsReviews',visitorController.viewEscapeRooms); //view reviews
+router.get('/fightReviews',visitorController.viewFights); //view reviews
+router.get('/koraReviews',visitorController.viewKoras); //view reviews
+router.get('/malahyReviews',visitorController.viewMalahy); //view reviews
+router.get('/raceReviews',visitorController.viewRace); //view reviews
+router.get('/theatreReviews',visitorController.viewTheatre); //view reviews
+router.get('/trampolineReviews',visitorController.viewTrampoline); //view reviews
 
 router.post('/postreview', userController.postReviews);
 
@@ -52,9 +57,9 @@ router.post('/search', userController.search);
 router.post('/filterByAge', userController.filterByAge);
 router.post('/filterByLocation', userController.filterByLocation);
 
-router.get('/signUp',verificationController.signup);
-router.get('/signIn',verificationController.signIn);
-router.post('/signOut', verificationController.signOut);
+router.get('/signUp',verificationController.signup); //to get message
+router.get('/signIn',verificationController.signIn); //to get message
+router.post('/signOut', verificationController.signOut); // to get message
 
 router.post('/UserController',userController.updateUser);
 router.post('/ServiceProviderController', serviceProviderController.updateBusiness);
@@ -174,9 +179,9 @@ res.render('404.ejs');
 });
 
 
-function isLoggedInUser(req, res, next) {
+function isLoggedInUser(req, res, next) { // check if the logged in
    if (req.isAuthenticated()){
-	 if(req.user.role==='User')
+	 if(req.user.role==='User') // check if it is a user
 	   return next();
 	 res.redirect('/');
    }
@@ -184,9 +189,9 @@ function isLoggedInUser(req, res, next) {
     res.redirect('/');
 };
 
-function isLoggedInProvider(req, res, next) {
+function isLoggedInProvider(req, res, next) { //check if logged in
    if (req.isAuthenticated()){
-	 if(req.user.role==='Service Provider')
+	 if(req.user.role==='Service Provider') //check if it is a service provider
 	   return next();
 	 res.redirect('/');
    }
@@ -194,9 +199,9 @@ function isLoggedInProvider(req, res, next) {
     res.redirect('/');
 };
 
-function isLoggedInAdmin(req, res, next) {
+function isLoggedInAdmin(req, res, next) { // check if logged in
    if (req.isAuthenticated()){
-	 if(req.user.role==='Admin')
+	 if(req.user.role==='Admin') //check if admin
 	   return next();
 	 res.redirect('/');
    }
