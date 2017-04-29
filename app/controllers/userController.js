@@ -51,7 +51,7 @@ var userController={
     newReview.save();
 
   },
-
+//by the booking id , the catigry andthe business name we search for the booking in all catigories to remove it from the booked array and make the slot availabe for others to book and add penalty for user the we change it's status from boking histoy
 deleteFromBus : function(req, res1){
 		
 		var userEmail = req.user.email;
