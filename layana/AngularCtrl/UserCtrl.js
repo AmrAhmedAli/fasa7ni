@@ -544,6 +544,8 @@ this.addBusinessReq = function(regData){
 angular.module('user', []).controller('UPD', function($scope, $http,$location){
 console.log("hnaaa");
 
+	// as a user i can update my profile info
+	// this function is called when a signed in user chooses update my profile button
 $http({
 	method: 'GET',
 	 url: '/viewMyprofile'
