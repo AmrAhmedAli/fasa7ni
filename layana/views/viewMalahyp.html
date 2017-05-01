@@ -13,7 +13,7 @@
            
 
 					<!-- Third slide -->
-					<div  class="item active" style="background-image:url(img/malahy.jpg)"> // background image
+					<div  class="item active" style="background-image:url(img/malahy.jpg)"> 
             <div  class="carousel-caption">
               <h1>{{page[1].businessName}}</h1>
               <hr class ="primary">
@@ -26,12 +26,12 @@
        </tr> 
   <tr class="ddd">
                   <td style="font-size:20px">
-                   <li ng-repeat= "ad in page[0].address"> //getting the business's addresses
+                   <li ng-repeat= "ad in page[0].address"> 
                            {{ad}}
                    </li> 
                    </td>
-                  <td style="font-size:20px"> {{page[0].rate}}</td> //getting the business's rating
-                  <td style="font-size:20px"> {{page[0].openingHours}}</td> //getting the business's opening hours
+                  <td style="font-size:20px"> {{page[0].rate}}</td> 
+                  <td style="font-size:20px"> {{page[0].openingHours}}</td> 
                  
   
    </tr> 
@@ -43,10 +43,10 @@
             <tr class="ddd" > <th  style="font-size:20px">Contact: </th></tr>
             <tr class="ddd" > 
                <td style="font-size:20px">
-                    <li ng-repeat= "e in page[0].contactInfo.email"> //getting the business's emails
+                    <li ng-repeat= "e in page[0].contactInfo.email"> 
                            Email :{{e}}
                    </li>
-                   <li ng-repeat= "n in page[0].contactInfo.number"> //getting the business's numbers
+                   <li ng-repeat= "n in page[0].contactInfo.number"> 
                           Number:  {{n}}
                    </li>  
                    </td>
@@ -62,13 +62,13 @@
                <th style="font-size:20px" > Ticket Price:</th>
               </tr>
              <tr class = "ddd">
-               <td style="font-size:20px" >{{SN.ticketType}} </td> //getting the business's ticket types
-                <td style="font-size:20px" >{{SN.price}} </td> //getting the business's price
+               <td style="font-size:20px" >{{SN.ticketType}} </td> 
+                <td style="font-size:20px" >{{SN.price}} </td> 
                     
               </tr>
               <tr class ="ddd">
                 <th>Games on ticket :</th>
-                <td><li ng-repeat="m in SN.games">{{m}}</li></td> //getting the ticket's included games
+                <td><li ng-repeat="m in SN.games">{{m}}</li></td> 
 
              
           </table> 
