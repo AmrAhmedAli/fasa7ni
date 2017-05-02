@@ -1,14 +1,26 @@
-angular.module('spCtrl',[]).controller('spController',function($scope,$http){
+angular.module('spCtrl',[]).controller('spController',function($scope,$http,$route){
 //Service provider controller module for getting the bookings from the backend database
   $http({
           method:'GET',
 	  //Backend route
-          url: '/Bookings',
+          url: '/Sbooks',
         }).then(function(data){
 	  //return bookings as an array in the scope
-          $scope.bookings=data.data;
+	  console.log(data.data);
+          $scope.Sbooks=data.data;
 
         });
+
+	$scope.stat = function(data1,data2){
+		$http({
+          method:'post',
+          url: '/stat',
+		  data : {'Bid':data1,'typee':data2}
+        }).then(function(data){
+				$route.reload();
+          
+        });
+	}
 
 });
 
