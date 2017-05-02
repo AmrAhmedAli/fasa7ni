@@ -1,6 +1,7 @@
 var Business=require('../models/Business');
 var ServiceProvider= require('../models/ServiceProvider');
 var offers= require('../models/Offers');
+var BookingHistory= require('../models/BookingHistory');
 
 var Cinema= require('../models/Cinema');
 var Concert= require('../models/Concert');
@@ -21,6 +22,35 @@ postPicturesRedirect: function(req,res){
   res.redirect('/postPictures');
 
 
+},newBooks : function(req,res){
+	BookingHistory.find({'busname':req.user.businessName},function(err, r){
+			res.send(r);
+	}
+
+	);
+},
+	stat : function(req,res){
+		if(req.body.typee =="cancel"){
+			BookingHistory.findOneAndUpdate({'_id': req.body.Bid},{'status':'Canceled'},function(err,r){
+				if(err){
+					console.log(err)
+				}
+				else{
+					res.json("success");					
+				}
+			});
+		}
+		else{
+			BookingHistory.findOneAndUpdate({'_id': req.body.Bid},{'status':'Completed'},function(err,r){
+				if(err){
+					console.log(err)
+				}
+				else{
+					res.json("success");					
+				}
+			});
+		}
+		
 },
 
   postPictures: function(req,res){
