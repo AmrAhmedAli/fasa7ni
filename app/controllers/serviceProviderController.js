@@ -524,13 +524,13 @@ else if (req.user.category=='Malahy')
 		a[0]="No business";
         res.json(a);
 	}
-       else if (malahy.booked.length==0){
+       else if (malahy.bought.length==0){
        a[0]="No bookings are made yet";
         res.json(a);
       }
 	
     else{
-	 x=malahy.booked;
+	 x=malahy.bought;
          a[0]=x;
          a[1]=req.user.category;
       res.json(a);
