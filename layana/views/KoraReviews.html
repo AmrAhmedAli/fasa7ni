@@ -45,7 +45,7 @@
 </table>
 
 
-<div ng-if="isLoggedIn && isUser" >
+<div ng-show="isLoggedIn && isUser" >
 <table class = "col-md-8 col-md-offset-2 text-mid">
 <tr>
 <div ng-class = "{'has-error' : reviewsForm.title.$invalid && reviewsForm.title.$touched}">
