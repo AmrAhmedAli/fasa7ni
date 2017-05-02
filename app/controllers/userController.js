@@ -582,7 +582,7 @@ viewSearchDirect:  function(req, res){
         });
 
     },
-   newBooking:function(req, res){
+      newBooking:function(req, res){
        var email;
        console.log(req.body.Cat);
        var serviceProvider;
@@ -819,10 +819,11 @@ viewSearchDirect:  function(req, res){
          });
           }
         if (serviceProvider.category ==='Theatre'){
+			console.log()
         var bookedHall = req.body.bookedHall;
           var bookedShow = req.body.bookedShow;
           var bookedSeats = req.body.bookedSeats;
-          var name= req.body.theatreName;
+          var name= req.body.businessName;
          var bookingObj = {userEmail:email ,bookedTimeSlot:bookedTimeSlot, paymentMethod:paymentMethod, date:date,bookedHall : bookedHall,bookedShow:bookedShow,bookedSeats:bookedSeats};     
           
            theatre.findOneAndUpdate({'name':name}, {$push: {'booked': bookingObj}},{new:true},function(err, doc){
