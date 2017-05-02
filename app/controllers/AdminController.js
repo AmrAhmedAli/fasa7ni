@@ -38,7 +38,7 @@ User.find({},'name email',function(err,usersktir){
 });},
 
 searchUser:function(req,res){
-	console.log(req.body);
+	
 	var arr = [];
 	var e ="";
 		  User.findOne({'_id':req.body.Uid},'-password',function(err, userS){
@@ -48,12 +48,14 @@ searchUser:function(req,res){
 		  e = userS.email;
 		  arr[0] = userS;
       }).then(function(){
+		
 		BookingHistory.find({'userEmail':e},function(err, Bookings){
           if(err)
               res.send(err.message);
-          else
-             arr[1] = Bookings;
-      })}).then(function(){res.json(arr)});
+          else{
+             arr[1] = Bookings;}
+			 res.json(arr);
+      })});
 	  
 
     },
