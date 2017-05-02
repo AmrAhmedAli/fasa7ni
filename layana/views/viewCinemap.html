@@ -81,13 +81,14 @@
           </table> 
 
            <hr class ="primary">
+	<div ng-show="isLoggedIn && isUser" >
             <input type="text" class="col-md-6" placeholder="Select Screen" ng-model = "dataa.scr">
           <input type="text" class="col-md-6" placeholder="Select Movie" ng-model = "dataa.mov">
            <input type="text" class="col-md-6" placeholder="Select Seat" ng-model = "dataa.seat">
            <input type="text" class="col-md-6" placeholder="Select TimeSlot" ng-model = "dataa.TS">
           
             <input name="booknow" type="submit" id="submit" class="contact submit btn btn-primary btn-xl" value="BookNow">
-              
+	</div>
             
         </div>  
 			          <br>
