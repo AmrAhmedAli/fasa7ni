@@ -118,6 +118,9 @@ router.get('/viewusers',AdminController.viewUsers);
 
 router.get('/SpecialOffers', userController.getAllOffers);
 router.get('/Bookings',serviceProviderController.getAllBookings);
+router.get('/Sbooks',serviceProviderController.newBooks);
+router.post('/stat',serviceProviderController.stat);
+
 
 //router.get('/tasks',userController.list_all_tasks) ;
 //router.post('/create',userController.create_a_task) ;
