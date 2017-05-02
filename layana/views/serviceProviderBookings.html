@@ -16,59 +16,34 @@
           Bookings</h1>
           <br>
           <br>
-          <!-- check if the bookings array returned from the angular controller is empty show a head containing No bookings are made yet-->
-          <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No bookings are made yet'">No bookings are made yet</h2>
-          <!-- if the service provider has no business yet show him a relevant message-->
-          <h2 class="section-heading" style ="color:White" ng-if="bookings[0]==='No business'">You don't have any business yet,please add business first</h2>
-          <!-- If there are bookings found show a table containing the bookings information-->
-          <div class="ayy" ng-if="bookings[0]!='No bookings are made yet' && bookings[0]!='No business'">
+          <div class="ayy">
+          <table class="col-xs-12">
+	        <tr  class = "ddd">
+           <th>Email</th>
+           <th>Description</th>
+           <th>Status</th>
+           <th></th>
+           <th></th>
+         </tr>
 
-          <table class="col-xs-12 ddd">
 
-            <tr >
-              <th >User</th>
-              <!-- show different information according to the service provider's category-->
-              <th ng-if="bookings[1]==='EscapeRoom'">Booked Room</th>
-              <th ng-if="bookings[1]==='Cinema'">Booked Movie</th>
-              <th ng-if="bookings[1]==='Cinema'">Booked Screen</th>
-              <th ng-if="bookings[1]==='Cinema'">Booked Seats</th>
-              <th ng-if="bookings[1]==='Theatre'">Booked Show</th>
-              <th ng-if="bookings[1]==='Theatre'">Booked Hall</th>
-              <th ng-if="bookings[1]==='Theatre'">Booked Seats</th>
-              <th ng-if="bookings[1]==='Concert'">Event Name</th>
-              <th ng-if="bookings[1]==='Fight'">Booked Game</th>
-              <th ng-if="bookings[1]==='Fight'">Booked Field</th>
-              <th ng-if="bookings[1]==='Kora'">Booked Field</th>
-              <th ng-if="bookings[1]==='Malahy'">Number of Tickets</th>
-              <th>Booked Time Slot</th>
-              <th>Payment Method</th>
-              <th>Date of Booking</th>
-            </tr>
+           <tr  class = "ddd" ng-repeat= "item in Sbooks">
+            <td>{{item.userEmail}}</td>
+           <td>{{item.description}}</td>
+          	<td>{{item.status}}</td>
+          
 
-            <tr ng-repeat="item in bookings[0]">
+      <td>   <div ng-show = "item.status=='In Progress'"><button ng-click= "stat(item._id,'cancel')" class="btn btn-danger col-xs-8">Cancel</button>
+              </div>
+      </td>
+        <td> <div ng-show = "item.status=='In Progress'"> <button ng-click= "stat(item._id,'pay')" class="btn btn-danger col-xs-8">Complete</button>
+              </div>
+        </td>
 
-              <td>{{item.userEmail}}</td>
-              <td ng-if="bookings[1]==='EscapeRoom'">{{item.bookedRoom}}</td>
-              <td ng-if="bookings[1]==='Cinema'">{{item.bookedMovie}}</td>
-              <td ng-if="bookings[1]==='Cinema'">{{item.bookedScreen}}</td>
-              <td ng-if="bookings[1]==='Cinema'"><li  ng-repeat="seats in item.bookedSeats">{{seats}}</li></td>
-              <td ng-if="bookings[1]==='Theatre'">{{item.bookedShow}}</td>
-              <td ng-if="bookings[1]==='Theatre'">{{item.bookedHall}}</td>
-              <td ng-if="bookings[1]==='Theatre'"><li  ng-repeat="seats in item.bookedSeats">{{seats}}</li></td>
-              <td ng-if="bookings[1]==='Concert'">{{item.bookedEventName}}</td>
-              <td ng-if="bookings[1]==='Fight'">{{item.bookedGame}}</td>
-              <td ng-if="bookings[1]==='Fight'">{{item.bookedField}}</td>
-              <td ng-if="bookings[1]==='Kora'">{{item.bookedField}}</td>
-              <td ng-if="bookings[1]==='Malahy'">{{item.numberOfTickets}}</td>
-              <td>{{item.bookedTimeSlot}}</td>
-              <td>{{item.paymentMethod}}</td>
-              <td>{{item.date | date:'short'}}</td>
-
-            </tr>
-
+          </tr>
+           
           </table>
-        </div>
-
+          </div>
 
 
     </div>
