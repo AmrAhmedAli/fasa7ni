@@ -39,7 +39,7 @@ var reviewController = {
   },
   viewEscapeRooms:function(req, res){
 
-    Review.find({'category': 'escape rooms'},function(err, reviews){ // reviews for escape rooms
+    Review.find({'category': 'EscapeRoom'},function(err, reviews){ // reviews for escape rooms
           if(err)
               res.send(err.message);
           else
