@@ -24,7 +24,12 @@ postPicturesRedirect: function(req,res){
 
 },newBooks : function(req,res){
 	BookingHistory.find({'busname':req.user.businessName},function(err, r){
-			res.send(r);
+				if(!r){
+				a="No bookings";
+        res.json(a);}
+				else{
+							res.send(r);
+				}
 	}
 
 	);
