@@ -1,60 +1,73 @@
 
 <!DOCTYPE html>
 	<html ng-app="TM">
-		<head>
-		</head>
-		
 		<body ng-controller="appController">
+		 <div id="carousel-example-generic" class="carousel intro slide">
+				<!-- Indicators -->
 
-		<p>Type a letter in the input field:</p>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+
+
+					<!-- Third slide -->
+					<div  class="item active" style="background-image:url(img/usrs.jpg)">
+						<div  class="carousel-caption">
+           <div class = "col-md-8 col-md-offset-2 text-center">
+		<p>Search using Name or Email:</p>
 		<p><input type="text" ng-model="test"></p>
-		<table>
-		<tr> <th>Users: </th></tr>
-			<tr ng-repeat = "user in usrs | filter:test"> 
+		 <div style="height: 300px;width:  1200px;  overflow-y: scroll;overflow-x: hidden;position: fixed;left: 50	;">
+             
+		<table class = "col-md-8 col-md-offset-2 text-center">
+		<tr class = "ddd"> <th>Users: </th></tr>
+			<tr class = "ddd" ng-repeat = "user in usrs | filter:test">
 							<td></td>
-							 <td>{{user.name}} </td> 
+							 <td>{{user.name}} </td>
 							 	<td>&nbsp</td>
 								 	<td>&nbsp</td>
 							  <td>{{user.email}} </td>
-               <td><button type ="submit" ng-click =  "findusr(user._id)" >Select</a></td>
-			  
-			  <td>  <button type ="submit" ng-click =  "blockusr(user._id)" >Block</a></td>
-			 <td>  <button type ="submit" ng-click =  "Unblockusr(user._id)" >UnBlock</a></td>
+               <td><button type ="submit" class="btn btn-danger col-xs-12" ng-click =  "findusr(user._id)" >Select</a></td>
+
+			  <td>  <button type ="submit" class="btn btn-danger col-xs-12" ng-click =  "blockusr(user._id)" >Block</a></td>
+			 <td>  <button type ="submit" class="btn btn-danger col-xs-12" ng-click =  "Unblockusr(user._id)" >UnBlock</a></td>
             </tr>
             </table>
+<div ng-show="rett">
+       
+<table class = "col-md-8 col-md-offset-2 text-left">
 
-<div ng-show="rett"> 
-
-<table>	
-	
 	 <tr><th>&nbsp</th><td>&nbsp</td></tr>
-	   
-	 <tr>
-                <th>User info of :{{retusr.name}}</th>
+
+	 <tr class = "ddd">
+                <th >User info of : <td>{{retusr.name}}</td></th>
       </tr>
 
 
-	  <tr>
-	   <tr> <th>Email :</th><td>{{retusr.email}}</td>  </tr>
-        <tr><th>birthdate :</th><td>{{retusr.birthdate}}</td></tr>
-		<tr> <th>gender :</th><td>{{retusr.gender}}</td>  </tr>
-        <tr><th>homelocation :</th><td>{{retusr.homelocation}}</td></tr>
-		<tr> <th>contact :</th><td>{{retusr.contact}}</td>  </tr>
-        <tr><th>cardNumber :</th><td>{{retusr.cardNumber}}</td></tr>
-		<tr> <th>holderName :</th><td>{{retusr.holderName}}</td>  </tr>
-        <tr><th>cvv :</th><td>{{retusr.cvv}}</td></tr>
-		<tr> <th>validdate :</th><td>{{retusr.validdate}}</td>  </tr>
-        <tr><th>balance :</th><td>{{retusr.balance}}</td></tr>
-     	<tr><th>blocked :</th><td>{{retusr.blocked}}</td></tr>
-	   <tr><th>&nbsp</th><td>&nbsp</td></tr>
-	   
-          </tr>  </table>
-<table ng-repeat= "booking in retbooks">
-	<tr><th>His booking history :</th></tr>
-	<tr><th>description :</th><td>{{booking.description}}</td></tr>
-	<tr><th>booking status :</th><td>{{booking.status}}</td></tr>
-</table>
+	  <tr class = "ddd">
+	   <tr class = "ddd"> <th>Email :</th><td>{{retusr.email}}</td>  </tr>
+        <tr class = "ddd"><th>birthdate :</th><td>{{retusr.birthdate}}</td></tr>
+		<tr class = "ddd"> <th>gender :</th><td>{{retusr.gender}}</td>  </tr>
+        <tr class = "ddd"><th>homelocation :</th><td>{{retusr.homelocation}}</td></tr>
+		<tr class = "ddd"> <th>contact :</th><td>{{retusr.contact}}</td>  </tr>
+        <tr class = "ddd"><th>cardNumber :</th><td>{{retusr.cardNumber}}</td></tr>
+		<tr class = "ddd"> <th>holderName :</th><td>{{retusr.holderName}}</td>  </tr>
+        <tr class = "ddd"><th>cvv :</th><td>{{retusr.cvv}}</td></tr>
+		<tr class = "ddd"> <th>validdate :</th><td>{{retusr.validdate}}</td>  </tr>
+        <tr class = "ddd"><th>balance :</th><td>{{retusr.balance}}</td></tr>
+     	<tr class = "ddd"><th>blocked :</th><td>{{retusr.blocked}}</td></tr>
+	   <tr class = "ddd"><th>&nbsp</th><td>&nbsp</td></tr>
 
+          </tr>  </table>
+<table class = "col-md-8 col-md-offset-2 text-left" ng-repeat= "booking in retbooks">
+	<tr class = "ddd"><th>His booking history :</th></tr>
+	<tr class = "ddd"><th>description :</th><td>{{booking.description}}</td></tr>
+	<tr class = "ddd"><th>booking status :</th><td>{{booking.status}}</td></tr>
+</table>
 </div>
+</div>
+		</div>
+		</div>
+          </div>
+        </div>
+      </div>
 		</body>
 	</html>
