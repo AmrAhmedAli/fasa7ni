@@ -6,7 +6,6 @@ angular.module('spCtrl',[]).controller('spController',function($scope,$http,$rou
           url: '/Sbooks',
         }).then(function(data){
 	  //return bookings as an array in the scope
-	  console.log(data.data);
           $scope.Sbooks=data.data;
 
         });
