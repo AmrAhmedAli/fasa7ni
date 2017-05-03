@@ -7,6 +7,7 @@ angular.module('spCtrl',[]).controller('spController',function($scope,$http,$rou
         }).then(function(data){
 	  //return bookings as an array in the scope
           $scope.Sbooks=data.data;
+	  $scope.bookingSize=$scope.Sbooks.length;
 
         });
 
