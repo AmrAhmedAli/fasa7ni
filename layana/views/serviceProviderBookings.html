@@ -2,11 +2,8 @@
 <body ng-controller="spController">
   <div id="carousel-example-generic" class="carousel intro slide">
   
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-
-    </ol>
-    <h2 class="section-heading" style ="color:White" ng-if="Sbooks==='No bookings'">No bookings are made yet</h2>
+    
+    
          
     <div class="carousel-inner" role="listbox">
 
@@ -17,7 +14,8 @@
           Bookings</h1>
           <br>
           <br>
-           <div class="ayy" ng-if="Sbooks!='No bookings'">
+		<h2 class="section-heading" style ="color:White" ng-if="bookingSize==0">No bookings are made yet</h2>
+           <div class="ayy" ng-if="bookingSize!=0">
 
           <table class="col-xs-12">
 	        <tr  class = "ddd">
